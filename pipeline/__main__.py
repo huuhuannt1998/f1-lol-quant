@@ -58,7 +58,17 @@ def main(argv=None) -> int:
     d.add_argument("--out", type=Path, default=config.ROOT / "cache" / "demo_site" / "data")
     b = sub.add_parser("backtest", help="offline experiments on cached data (no network)")
     b.add_argument("sport", choices=["lol"])
+    o = sub.add_parser("oe-history", help="rebuild history/lol_oe_series.csv from Oracle's Elixir 2014-2023")
+    o.add_argument("--download", action="store_true", help="fetch the yearly CSVs into cache/oe_hist first")
     args = ap.parse_args(argv)
+
+    if args.cmd == "oe-history":
+        from .lol import oe_history
+        src = config.CACHE / "oe_hist"
+        if args.download:
+            oe_history.download(range(2014, 2024), src)
+        oe_history.build(src, config.LOL_OE_HISTORY_FILE)
+        return 0
 
     if args.cmd == "backtest":
         from .lol.experiments import compare

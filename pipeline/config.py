@@ -48,6 +48,15 @@ LOL_LEAGUE_SLUGS = [
     "lck_challengers_league", "ldl", "emea_masters", "nacl",
     "lfl", "superliga", "prime_league", "tcl",
 ]
+# Older history rebuilt from Oracle's Elixir games (pipeline/lol/oe_history.py),
+# committed as a small CSV. Used from this year up to lolesports' first match;
+# None turns it off. Chosen 2026-10-21 on Elo log loss before the backtest
+# window (shared slice 2024-07 -> 2025-10): international 0.639 (lolesports
+# only) -> 0.600 (OE from 2018) -> 0.590 (from 2014); major leagues
+# 0.5628 / 0.5633 / 0.5639 (unchanged). The window agreed: live gbm
+# international 0.622 -> 0.605.
+LOL_OE_HISTORY_FILE = ROOT / "history" / "lol_oe_series.csv"
+LOL_OE_HISTORY_FROM = 2014
 # Known renames so a team keeps its rating across sponsor changes.
 # normalized-old-name -> normalized-new-name
 LOL_TEAM_ALIASES = {

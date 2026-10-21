@@ -6,7 +6,7 @@ import pandas as pd
 
 from .. import config, kalshi, ledger, picks
 from ..util import has_lightgbm, iso, name_similarity, nonfinite_counts, utcnow
-from . import lolesports, oracles_elixir as oe
+from . import lolesports, oe_history, oracles_elixir as oe
 from .elo import team_key
 from .model import (BASE_FEATURES, MatchModel, add_oe_diffs, evaluate,
                     historical_features, tbd_matches, tune_elo, upcoming_features, walk_forward)
@@ -86,7 +86,9 @@ def power_rankings(book, now: pd.Timestamp, exclude_tier2: bool = True) -> tuple
 def run(fetch: bool = True, use_oe: bool = True) -> dict:
     print("LoL")
     now = pd.Timestamp.now(tz="UTC")
-    matches = lolesports.prepare(lolesports.update() if fetch else lolesports.load_store(), now)
+    store = lolesports.update() if fetch else lolesports.load_store()
+    # + older seasons rebuilt from Oracle's Elixir (config.LOL_OE_HISTORY_FROM)
+    matches = lolesports.prepare(oe_history.add_history(store), now)
     stale = matches["state"] == "stale"
     print(f"  stale (not completed {config.LOL_STALE_HOURS}h after start, ignored): {int(stale.sum())}")
     stale_ids = set(matches.loc[stale, "match_id"].astype(str))
@@ -125,7 +127,9 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
     feats = oe.attach(feats, form)
     oe_cols = add_oe_diffs(feats)
     if oe_cols:
-        k1 = feats["team1_oe_games"].notna().mean() if "team1_oe_games" in feats else 0
+        # Only over the period the OE stat files cover (older history has none).
+        in_oe = pd.to_datetime(feats["start_time"], utc=True) >= form["date"].min()
+        k1 = feats.loc[in_oe, "team1_oe_games"].notna().mean() if "team1_oe_games" in feats and in_oe.any() else 0
         oe_info["match_coverage"] = round(float(k1), 3)
         print(f"  OE: match coverage {oe_info['match_coverage']:.1%} (team1 has OE history)")
     kinds = {"elo": [], "logreg": BASE_FEATURES, "gbm": BASE_FEATURES + oe_cols}

@@ -29,7 +29,7 @@ import pandas as pd
 
 from .. import config
 from ..util import calibration_slope, has_lightgbm, summarize
-from . import lolesports
+from . import lolesports, oe_history
 from .elo import run_elo
 from .model import BASE_FEATURES, historical_features, tune_elo, walk_forward
 from .run import eval_window_start, power_rankings
@@ -103,7 +103,7 @@ def _print(r: dict) -> None:
 
 def compare(intl_mults=INTL_MULTS, drops=(False, True), out_name: str = "backtest_lol.json") -> list[dict]:
     now = pd.Timestamp.now(tz="UTC")
-    matches = lolesports.prepare(lolesports.load_store(), now)
+    matches = lolesports.prepare(oe_history.add_history(lolesports.load_store()), now)
     if not (matches["state"] == "completed").any():
         raise SystemExit("No cached LoL matches. Run `python -m pipeline update --sport lol` first.")
     eval_start = eval_window_start(matches, now)
