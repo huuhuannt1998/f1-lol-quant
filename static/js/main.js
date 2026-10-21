@@ -137,6 +137,58 @@
       h('span', { class: 'legend-inline' }, 'Edge = model − ask, before fees'));
   }
 
+  // ------------------------------------------------------- the decision
+  // The model's call: who it picks and, where a Kalshi price is on the page,
+  // whether buying is worth it after fees (net edge >= meta.edge_min).
+  function kalshiFee(price) {
+    var rate = (state.data.meta || {}).fee_rate;
+    return Math.ceil((rate == null ? 0.07 : rate) * price * (1 - price) * 100) / 100;
+  }
+  function netEdge(p, ask) {
+    return isNum(p) && isNum(ask) && ask > 0 && ask < 1 ? p - ask - kalshiFee(ask) : null;
+  }
+  function edgeMin() { return (state.data.meta || {}).edge_min || 0.05; }
+
+  function lolPick(m, k) {
+    if (!isNum(m.p1)) return null;
+    var one = m.p1 >= 0.5, name = one ? m.team1 : m.team2, p = one ? m.p1 : 1 - m.p1;
+    var conf = p >= 0.75 ? 'strong' : p >= 0.6 ? 'clear' : 'lean';
+    var parts = [h('span', { class: 'pick-label' }, 'Model pick'), h('strong', null, name + ' ' + prob(p)),
+      h('span', { class: 'pick-conf ' + conf },
+        conf === 'strong' ? 'strong favourite' : conf === 'clear' ? 'clear favourite' : 'lean, close match')];
+    if (k) {
+      var e1 = netEdge(m.p1, k.t1 && k.t1.yes_ask), e2 = netEdge(1 - m.p1, k.t2 && k.t2.yes_ask);
+      var best = e1 != null && (e2 == null || e1 >= e2) ? [m.team1, e1, k.t1.yes_ask]
+        : e2 != null ? [m.team2, e2, k.t2.yes_ask] : null;
+      parts.push(best && best[1] >= edgeMin()
+        ? h('span', { class: 'pick-value' }, 'Value: ' + best[0] + ' at ' + cents(best[2]) + ' (' + signed(best[1] * 100, 0) + '¢ after fees)')
+        : h('span', { class: 'muted' }, 'no value at current Kalshi prices'));
+    }
+    return h('div', { class: 'pick' }, parts);
+  }
+
+  function f1Pick(n) {
+    var ds = (n.drivers || []).filter(function (x) { return isNum(x.p_win); });   // sorted by p_win
+    if (!ds.length) return null;
+    var podium = ds.slice().sort(function (a, b) { return (b.p_podium || 0) - (a.p_podium || 0); }).slice(0, 3);
+    var priced = ds.filter(function (x) { return x.kalshi; });
+    var value = priced.map(function (x) { return { x: x, e: netEdge(x.p_win, x.kalshi.yes_ask), ask: x.kalshi.yes_ask }; })
+      .filter(function (v) { return v.e != null && v.e >= edgeMin(); })
+      .sort(function (a, b) { return b.e - a.e; });
+    return h('div', { class: 'pick' },
+      h('span', { class: 'pick-label' }, 'Model pick to win'), h('strong', null, ds[0].code + ' ' + prob(ds[0].p_win)),
+      h('span', { class: 'muted' }, 'podium: ' + podium.map(function (x) { return x.code + ' ' + prob(x.p_podium); }).join(', ')),
+      value.length
+        ? h('span', { class: 'pick-value' }, 'Value: ' + value.slice(0, 3).map(function (v) {
+            return v.x.code + ' at ' + cents(v.ask) + ' (' + signed(v.e * 100, 0) + '¢)'; }).join(', '))
+        : priced.length ? h('span', { class: 'muted' }, 'no value at current Kalshi prices') : null);
+  }
+
+  function pickNote(text) {
+    return h('p', { class: 'note' }, text + ' "Value" means model probability minus the Kalshi ask minus the fee is at least ' +
+      cents(edgeMin()) + '. These are forecasts, not betting advice.');
+  }
+
   // ------------------------------------------------------------- LoL
   function renderLoL() {
     var d = state.data.lol;
@@ -158,6 +210,11 @@
     }
 
     box.appendChild(legend());
+    var live = d.backtest && d.backtest.metrics && d.model && d.backtest.metrics[d.model.chosen];
+    if (live && live.all && isNum(live.all.accuracy)) {
+      box.appendChild(pickNote('Model pick = the team the model rates likelier. In the walk-forward backtest the pick won ' +
+        pct(live.all.accuracy) + ' of ' + live.all.n + ' matches.'));
+    }
     var byDay = {}, order = [];
     (d.upcoming || []).forEach(function (m) {
       var k = fmtDay(m.start);
@@ -230,6 +287,7 @@
           h('div', { class: 'mkt' }, q ? ['Kalshi ', cents(q.mid), h('span', { class: 'muted' }, ' · ask ' + cents(q.yes_ask)), edgeEl(x[3], q.yes_ask)]
                                        : h('span', { class: 'muted' }, 'no market'))));
       });
+    body.appendChild(lolPick(m, k));
     card.appendChild(body);
     return card;
   }
@@ -261,10 +319,15 @@
             h('span', { class: 'badge' }, n.stage === 'post_quali' ? 'After qualifying' : 'Before qualifying'),
             n.sprint_time ? h('span', { class: 'badge' }, 'Sprint weekend') : null,
             h('span', { class: 'badge' }, 'model: ' + n.model)),
-          h('h2', null, n.name), h('p', { class: 'sub' }, n.circuit + ' · ' + n.country)),
+          h('h2', null, n.name), h('p', { class: 'sub' }, n.circuit + ' · ' + n.country), f1Pick(n)),
         n.quali_time ? h('div', { class: 'countdown' }, 'Qualifying', h('strong', { 'data-until': n.quali_time }, until(n.quali_time)), fmtFull(n.quali_time)) : null,
         h('div', { class: 'countdown' }, 'Race', h('strong', { 'data-until': n.race_time }, until(n.race_time)), fmtFull(n.race_time))));
       nextBox.appendChild(legend());
+      var fb = d.backtest || {}, st = fb.metrics && fb.chosen && fb.metrics[n.stage] && fb.metrics[n.stage][fb.chosen[n.stage]];
+      if (st && isNum(st.favourite_won)) {
+        nextBox.appendChild(pickNote('In the backtest the model\'s favourite won ' + pct(st.favourite_won) + ' of ' + st.races +
+          ' races at this stage (' + (n.stage === 'post_quali' ? 'after qualifying' : 'before qualifying') + ').'));
+      }
       var rows = n.drivers.map(function (x, i) {
         var q = x.kalshi;
         return h('tr', null, h('td', { class: 'r muted' }, i + 1),
