@@ -588,3 +588,14 @@ svg.chart .hair { stroke: var(--muted); stroke-width: 1; }
 .pick-conf.strong, .pick-conf.clear { color: var(--text); }
 .pick-value { color: var(--good); font-weight: 600; }
 .race-card .pick { border-top: none; padding-top: 0; }
+
+/* ---------- "My pick" (saved to GitHub) ---------- */
+.mypick { margin-top: 6px; font-size: 14px; }
+.mypick summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.mypick[open] summary { margin-bottom: 6px; }
+.mypick-row { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.mypick-row select, .mypick-row input[type=range] { max-width: 100%; }
+.mypick-row input[type=range] { width: 140px; }
+.btn { font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 6px; cursor: pointer;
+       border: 1px solid var(--border); background: var(--chip-bg); color: var(--text); }
+.btn:hover { border-color: var(--accent); }

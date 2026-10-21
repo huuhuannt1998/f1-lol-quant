@@ -105,3 +105,19 @@ Buying YES at the ask *a* with true probability *p* has expected profit `p − a
 3. **Glicko-2** instead of Elo, so each rating carries its own uncertainty, which is useful right after roster changes.
 4. **Draft-aware LoL model**: after champion select, before game 1. Needs pick/ban data from Oracle's Elixir.
 5. **Bayesian shrinkage** for circuit history and head-to-head records.
+
+## 11. You vs the model: is your judgement a feature?
+
+The page lets you lock in your own pick (who wins, and how sure you are) before each match or race. It is saved as a small file in `ledger/my_picks/` and counts only if it was committed before the start (`pipeline/picks.py`). The Track record tab scores you exactly like the model: log loss, Brier, accuracy, on the same events.
+
+Why give a **probability** and not just a team: a pick of "T1" can't tell a coin-flip hunch from a sure thing, so it can't be scored with log loss or combined with anything.
+
+Can your picks improve the model? Only if they carry information the model doesn't have (roster news, the patch, draft habits), and that has to be *measured*, not assumed. The standard tool is a **blend**, also called stacking:
+
+`P(win) = σ(a · logit(p_model) + b · logit(p_you))`
+
+Fit `a` and `b` walk-forward, like everything else: for each month, use only picks that settled before it. If the blend's log loss beats the model's, your judgement adds information and the blend can go live. If `b` comes out near 0, the model already knows what you know. A 50/50 average of the two is not the same thing: if your picks are noisy, it makes forecasts worse.
+
+You need roughly 100+ settled picks on events the model also forecast before `a` and `b` mean anything; the page counts them for you.
+
+*Exercise:* once you have 100 picks, fit the blend with `sklearn.linear_model.LogisticRegression(fit_intercept=False)` on the two logits, walk-forward by month, and compare its log loss with the model's on the same events.

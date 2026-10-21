@@ -21,6 +21,9 @@ SITE_DATA = ROOT / "data"
 # Runs on your Mac default to cache/ledger_local/, so a local run never makes
 # the committed CSVs diverge from the Action's (which would conflict on pull).
 LEDGER_DIR = Path(os.environ.get("F1LOL_LEDGER_DIR") or CACHE / "ledger_local")
+# Your own picks: one CSV per pick, committed to the repo from the page
+# (pipeline/picks.py). Always the repo's folder, wherever the pipeline runs.
+PICKS_DIR = ROOT / "ledger" / "my_picks"
 
 USER_AGENT = "f1-lol-quant/0.1 (personal research project; github pages)"
 

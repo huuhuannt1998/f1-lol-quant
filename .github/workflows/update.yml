@@ -28,6 +28,10 @@ jobs:
       F1LOL_LEDGER_DIR: ${{ github.workspace }}/ledger
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: a "My pick" counts only if its file was committed
+          # before the event, and that commit time comes from git log.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

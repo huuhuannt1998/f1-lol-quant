@@ -128,6 +128,10 @@ Two lessons are hiding in that table:
 
 With Oracle's Elixir data (a local run, not yet in the Action), the LoL gbm improves to log loss 0.609, with international 0.602.
 
+### Your own picks
+
+Each upcoming match card and the next F1 race have a **My pick** control: choose who wins and how sure you are, then press *Save on GitHub*. GitHub's new-file editor opens with a one-line pick file for `ledger/my_picks/`, and pressing *Commit changes* locks it in. The commit time is the lock: a pick committed after the start never counts. The Track record tab then scores you exactly like the model, and after about 100 settled picks a "model + you" blend can be tested (LEARNING.md §11).
+
 ### Why the numbers can be trusted, and where they can't
 
 - **No leakage.** Tests in `tests/test_pipeline.py` change a future result and check that no earlier feature moves.

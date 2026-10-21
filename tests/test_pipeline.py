@@ -188,6 +188,35 @@ def test_paper_trade_math():
     assert t.iloc[0]["pnl"] == pytest.approx(1 - 0.55 - fee_yes)
 
 
+def test_my_picks_lock_rule_and_scoring(tmp_path, monkeypatch):
+    from pipeline import picks
+    monkeypatch.setattr(config, "PICKS_DIR", tmp_path / "my_picks")
+    monkeypatch.setattr(config, "LEDGER_DIR", tmp_path / "ledger")
+    config.PICKS_DIR.mkdir()
+    start = "2026-10-23T17:00:00Z"
+
+    def write(name, picked_at, team, p):
+        (config.PICKS_DIR / name).write_text(",".join(picks.COLS) + "\n" +
+                                            f"{picked_at},lol,m1,A vs B,{start},{team},{team.lower()},{p}\n")
+
+    write("a.csv", "2026-10-23T10:00:00Z", "A", 0.7)
+    write("b.csv", "2026-10-23T18:00:00Z", "B", 0.6)          # written after the start: never counts
+    ledger.record_results([{"sport": "lol", "event_id": "m1", "selection_id": "a", "outcome": 1},
+                           {"sport": "lol", "event_id": "m1", "selection_id": "b", "outcome": 0}])
+    s = picks.summary("lol", times={})                         # no git: the time in the file is used
+    assert s["settled"] == 1 and s["late_rejected"] == 1
+    assert s["you"]["log_loss"] == pytest.approx(-np.log(0.7), abs=1e-4)
+    # The commit time is the lock: committed after the start, the pick no longer counts.
+    s = picks.summary("lol", times={"a.csv": "2026-10-23T17:30:00+00:00"})
+    assert s["settled"] == 0 and s["late_rejected"] == 2
+
+
+def test_parse_git_log_gives_first_commit_time_per_file():
+    from pipeline.picks import parse_git_log
+    out = "@2026-10-22T10:00:00+00:00\n\nledger/my_picks/b.csv\n@2026-10-21T09:00:00-04:00\n\nledger/my_picks/a.csv\n"
+    assert parse_git_log(out) == {"b.csv": "2026-10-22T10:00:00+00:00", "a.csv": "2026-10-21T09:00:00-04:00"}
+
+
 def test_scorecard_can_ignore_never_settling_events(tmp_ledger):
     start = iso(utcnow() + timedelta(hours=2))
     rows = [{"sport": "lol", "event_id": e, "event_name": f"m{e}", "stage": "pre_match", "selection": "A",

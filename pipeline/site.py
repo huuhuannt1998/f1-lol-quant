@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 from pathlib import Path
 
 from . import config
@@ -31,6 +32,8 @@ def write(name: str, payload: dict, out_dir: Path | None = None) -> Path:
 
 
 def write_meta(status: dict, out_dir: Path | None = None) -> Path:
+    # "owner/repo" lets the page's "My pick" button open GitHub's editor.
     return write("meta", {"updated_at": iso(utcnow()), "model_version": config.MODEL_VERSION,
                           "status": status, "edge_min": config.PAPER_EDGE_MIN,
-                          "fee_rate": config.KALSHI_FEE_RATE}, out_dir)
+                          "fee_rate": config.KALSHI_FEE_RATE,
+                          "repo": os.environ.get("GITHUB_REPOSITORY")}, out_dir)

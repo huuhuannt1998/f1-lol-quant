@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .. import config, kalshi, ledger
+from .. import config, kalshi, ledger, picks
 from ..util import has_lightgbm, iso, name_similarity, nonfinite_counts, utcnow
 from . import lolesports, oracles_elixir as oe
 from .elo import team_key
@@ -158,6 +158,7 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
                 "league": r.league_name, "intl": bool(r.intl), "block": r.block,
                 "best_of": int(r.best_of), "team1": r.team1, "team2": r.team2,
                 "code1": r.team1_code, "code2": r.team2_code,
+                "sel1": team_key(r.team1), "sel2": team_key(r.team2),   # ids a "My pick" is scored by
                 "elo1": _f(r.r1_pre, 0), "elo2": _f(r.r2_pre, 0),
                 "p1": _f(r.p1), "p1_elo": _f(r.p_series_elo),
                 "kalshi": None}
@@ -232,4 +233,5 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
                      "oracles_elixir": oe_info},
         "ledger": ledger.scorecard("lol", ignore=stale_ids),
         "ledger_recent": ledger.recent_rows("lol", ignore=stale_ids),
+        "my_picks": picks.summary("lol"),
     }

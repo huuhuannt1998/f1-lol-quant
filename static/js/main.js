@@ -189,6 +189,74 @@
       cents(edgeMin()) + '. These are forecasts, not betting advice.');
   }
 
+  // -------------------------------------------------------- my picks
+  // A pick is one small CSV committed to ledger/my_picks/ through GitHub's
+  // new-file editor; the commit time locks it (pipeline/picks.py).
+  function repoSlug() {
+    var meta = state.data.meta || {};
+    if (meta.repo) return meta.repo;
+    var host = location.hostname.match(/^([^.]+)\.github\.io$/);
+    var seg = location.pathname.split('/').filter(Boolean)[0];
+    return host && seg ? host[1] + '/' + seg : null;
+  }
+  function csvCell(v) {
+    var s = v == null ? '' : String(v);
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }
+  function pickUrl(row) {
+    var slug = repoSlug();
+    if (!slug) return null;
+    var stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
+    var name = 'ledger/my_picks/' + stamp + '-' + row.sport + '-' + String(row.event_id).replace(/[^A-Za-z0-9_-]/g, '') + '.csv';
+    var cols = ['picked_at', 'sport', 'event_id', 'event_name', 'event_start', 'selection', 'selection_id', 'p_pick'];
+    row.picked_at = new Date().toISOString();
+    var csv = cols.join(',') + '\n' + cols.map(function (c) { return csvCell(row[c]); }).join(',') + '\n';
+    return 'https://github.com/' + slug + '/new/main?filename=' + encodeURIComponent(name) + '&value=' + encodeURIComponent(csv);
+  }
+
+  // opts: sport, event_id, event_name, event_start, options [{id, name}], prompt, min, start, saved
+  function pickControl(o) {
+    var saved = o.saved;
+    var sel = h('select', { 'aria-label': 'Your pick' }, h('option', { value: '' }, o.prompt),
+      o.options.map(function (x) { return h('option', { value: x.id }, x.name); }));
+    var rng = h('input', { type: 'range', min: o.min, max: 99, value: o.start, 'aria-label': 'How sure you are' });
+    var val = h('strong', { class: 'num' }, o.start + '%');
+    rng.addEventListener('input', function () { val.textContent = rng.value + '%'; });
+    var note = h('span', { class: 'muted' }, 'Counts only if committed before the start.');
+    var btn = h('button', { type: 'button', class: 'btn', onclick: function () {
+      var pick = o.options.filter(function (x) { return x.id === sel.value; })[0];
+      if (!pick) { note.textContent = 'Choose who wins first.'; return; }
+      var url = pickUrl({ sport: o.sport, event_id: o.event_id, event_name: o.event_name, event_start: o.event_start,
+        selection: pick.name, selection_id: pick.id, p_pick: (Number(rng.value) / 100).toFixed(2) });
+      if (url) window.open(url, '_blank', 'noopener');
+      note.textContent = 'GitHub opened in a new tab: press "Commit changes" there to lock the pick in.';
+    } }, 'Save on GitHub');
+    return h('details', { class: 'mypick' },
+      h('summary', null, saved ? 'My pick: ' + saved.selection + ' ' + Math.round(saved.p * 100) + '% (locked)' : 'My pick'),
+      h('div', { class: 'mypick-row' }, sel, rng, val, repoSlug() ? btn : h('span', { class: 'muted' }, 'Saving works on the published site.'), note));
+  }
+
+  function myPicksSection(d, sport, tile) {
+    var P = d && d.my_picks;
+    var wrap = h('div', null, h('h2', { class: 'section-title', style: 'margin-top:4px' }, 'You vs the model'));
+    if (!P || (!P.settled && !P.pending)) {
+      wrap.appendChild(h('p', { class: 'note' }, 'No picks yet. Open "My pick" on an upcoming ' + (sport === 'lol' ? 'match' : 'race') +
+        ', choose who wins and how sure you are, and commit it on GitHub before the start. Settled picks are scored exactly like the model.' +
+        (P && P.late_rejected ? ' ' + P.late_rejected + ' picks were committed after the start and do not count.' : '')));
+      return wrap;
+    }
+    var hh = P.head_to_head, you = P.you || {};
+    wrap.appendChild(h('div', { class: 'tiles' },
+      tile('Your settled picks', P.settled, P.pending + ' pending' + (P.late_rejected ? ' · ' + P.late_rejected + ' too late' : '')),
+      tile('Log loss · you', num(you.log_loss, 3), hh ? 'model ' + num(hh.model.log_loss, 3) + ' on the same ' + hh.n : null),
+      tile('Brier · you', num(you.brier, 3), hh ? 'model ' + num(hh.model.brier, 3) : null),
+      tile('Accuracy · you', pct(you.accuracy), hh ? 'model ' + pct(hh.model.accuracy) : null)));
+    wrap.appendChild(h('p', { class: 'note' }, P.blend_ready
+      ? 'Enough picks to test a "model + you" blend (docs/LEARNING.md §11).'
+      : 'A "model + you" blend can be tested once ' + P.blend_min + ' picks have settled on events the model also forecast (' + (hh ? hh.n : 0) + ' so far).'));
+    return wrap;
+  }
+
   // ------------------------------------------------------------- LoL
   function renderLoL() {
     var d = state.data.lol;
@@ -288,6 +356,12 @@
                                        : h('span', { class: 'muted' }, 'no market'))));
       });
     body.appendChild(lolPick(m, k));
+    if (!started && isNum(m.p1)) {
+      var mp = (state.data.lol || {}).my_picks || {};
+      body.appendChild(pickControl({ sport: 'lol', event_id: m.id, event_name: m.team1 + ' vs ' + m.team2 + ' (' + m.league + ')',
+        event_start: m.start, options: [{ id: m.sel1, name: m.team1 }, { id: m.sel2, name: m.team2 }],
+        prompt: 'Who wins?', min: 50, start: 60, saved: (mp.open || {})[m.id] }));
+    }
     card.appendChild(body);
     return card;
   }
@@ -319,7 +393,11 @@
             h('span', { class: 'badge' }, n.stage === 'post_quali' ? 'After qualifying' : 'Before qualifying'),
             n.sprint_time ? h('span', { class: 'badge' }, 'Sprint weekend') : null,
             h('span', { class: 'badge' }, 'model: ' + n.model)),
-          h('h2', null, n.name), h('p', { class: 'sub' }, n.circuit + ' · ' + n.country), f1Pick(n)),
+          h('h2', null, n.name), h('p', { class: 'sub' }, n.circuit + ' · ' + n.country), f1Pick(n),
+          new Date(n.race_time) > Date.now() ? pickControl({ sport: 'f1', event_id: n.season + '-' + (n.round < 10 ? '0' : '') + n.round,
+            event_name: n.season + ' ' + n.name, event_start: n.race_time,
+            options: n.drivers.map(function (x) { return { id: x.id, name: x.code + ' ' + x.name }; }),
+            prompt: 'Who wins?', min: 1, start: 20, saved: ((d.my_picks || {}).open || {})[n.season + '-' + (n.round < 10 ? '0' : '') + n.round] }) : null),
         n.quali_time ? h('div', { class: 'countdown' }, 'Qualifying', h('strong', { 'data-until': n.quali_time }, until(n.quali_time)), fmtFull(n.quali_time)) : null,
         h('div', { class: 'countdown' }, 'Race', h('strong', { 'data-until': n.race_time }, until(n.race_time)), fmtFull(n.race_time))));
       nextBox.appendChild(legend());
@@ -461,6 +539,8 @@
       b.setAttribute('aria-pressed', String(b.getAttribute('data-sport') === sport));
     });
     var L = d && d.ledger;
+    function tile(label, value, sub) { return h('div', { class: 'tile' }, h('div', { class: 'label' }, label), h('div', { class: 'value' }, value), sub ? h('div', { class: 'sub' }, sub) : null); }
+    box.appendChild(myPicksSection(d, sport, tile));
     if (!L || !L.settled_events) {
       box.appendChild(h('div', { class: 'empty', style: 'margin-top:16px' },
         'No settled forecasts yet. The scheduled job logs a forecast before every ' + (sport === 'lol' ? 'match' : 'race') +
@@ -468,7 +548,6 @@
       return;
     }
     var hh = L.head_to_head, P = L.paper || {};
-    function tile(label, value, sub) { return h('div', { class: 'tile' }, h('div', { class: 'label' }, label), h('div', { class: 'value' }, value), sub ? h('div', { class: 'sub' }, sub) : null); }
     box.appendChild(h('div', { class: 'tiles' },
       tile('Settled events', L.settled_events, L.pending_events + ' pending'),
       hh ? tile('Log loss · model', num(hh.model.log_loss, 3), 'market ' + num(hh.market.log_loss, 3) + ' · lower is better') : tile('Log loss · model', num(L.model.log_loss, 3)),

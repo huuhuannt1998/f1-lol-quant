@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .. import config, kalshi, ledger
+from .. import config, kalshi, ledger, picks
 from ..util import has_lightgbm, iso, nonfinite_counts, utcnow
 from . import jolpica
 from .model import STAGES, evaluate, make_model, plackett_luce, walk_forward
@@ -82,7 +82,7 @@ def run(fetch: bool = True) -> dict:
         drivers, pred_rows = [], []
         for r in field.sort_values("p_win", ascending=False).itertuples(index=False):
             q = quotes.get(r.driver_code, {})
-            drivers.append({"code": r.driver_code, "name": r.driver, "team": r.constructor,
+            drivers.append({"code": r.driver_code, "name": r.driver, "team": r.constructor, "id": r.driver_id,
                             "quali": None if pd.isna(r.quali_pos) else int(r.quali_pos),
                             "p_win": _f(r.p_win), "p_podium": _f(r.p_podium),
                             "p_points": _f(r.p_points), "exp_pos": _f(r.exp_pos, 1),
@@ -148,4 +148,5 @@ def run(fetch: bool = True) -> dict:
                              for i, r in enumerate(c.itertuples(), 1)]}
     out["ledger"] = ledger.scorecard("f1")
     out["ledger_recent"] = ledger.recent_rows("f1")
+    out["my_picks"] = picks.summary("f1")
     return out
