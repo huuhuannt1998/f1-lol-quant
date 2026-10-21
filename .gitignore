@@ -1,0 +1,11 @@
+cache/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+.pytest_cache/
+# private planning notes stay on the SSD
+docs/plans/
+# personal working notes for Claude Code sessions (machine, schedule, people); kept off the public repo
+CLAUDE.md
+PROMPT.md

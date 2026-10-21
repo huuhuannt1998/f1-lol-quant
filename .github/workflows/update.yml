@@ -1,0 +1,63 @@
+name: Update forecasts
+
+on:
+  schedule:
+    # Hourly at :17 (off the top of the hour, when GitHub's queue is busiest).
+    # Hourly keeps the last logged forecast close to each match's start.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-forecasts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      PYTHONUNBUFFERED: "1"
+      # Oracle's Elixir lives on Google Drive, whose per-file download quota
+      # fails often; the Action forecasts without it (Elo + form features).
+      F1LOL_OE_DOWNLOAD: "0"
+      # The Action is the only writer of the committed ledger (local runs use
+      # cache/ledger_local; see pipeline/config.py).
+      F1LOL_LEDGER_DIR: ${{ github.workspace }}/ledger
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Raw downloads (finished F1 seasons, old LoL pages, Oracle's Elixir
+      # CSVs) are cached between runs so each run only fetches what is new.
+      - name: Restore data cache
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: data-cache-${{ github.run_id }}
+          restore-keys: data-cache-
+
+      - name: Fetch, forecast, write data/*.json
+        run: python -m pipeline update
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data ledger
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "Update forecasts $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash
+          git push

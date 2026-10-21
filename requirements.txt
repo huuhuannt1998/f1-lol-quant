@@ -1,0 +1,7 @@
+pandas>=2.1
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
+lightgbm>=4.3
+requests>=2.31
+gdown>=5.1

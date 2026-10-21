@@ -1,0 +1,53 @@
+logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_model,model,kalshi_ticker,bid,ask,mid,volume
+2026-10-16T04:46:29Z,lol,115660588583171790,Karmine Corp vs MVK Esports (Worlds),2026-10-16T18:00:00Z,pre_match,Karmine Corp,karmine corp,0.743,gbm-v0.1,KXLOLGAME-26OCT161400KCMVK-KC,0.81,0.82,0.815,12701.62
+2026-10-16T04:46:29Z,lol,115660588583171790,Karmine Corp vs MVK Esports (Worlds),2026-10-16T18:00:00Z,pre_match,MVK Esports,mvk esports,0.257,gbm-v0.1,KXLOLGAME-26OCT161400KCMVK-MVK,0.18,0.19,0.185,8649.72
+2026-10-16T04:46:29Z,lol,115660588583171794,Cloud9 Kia vs FURIA (Worlds),2026-10-16T23:00:00Z,pre_match,Cloud9 Kia,cloud9 kia,0.6371,gbm-v0.1,KXLOLGAME-26OCT161900C9FUR-C9,0.8,0.81,0.805,1758.82
+2026-10-16T04:46:29Z,lol,115660588583171794,Cloud9 Kia vs FURIA (Worlds),2026-10-16T23:00:00Z,pre_match,FURIA,furia,0.3629,gbm-v0.1,KXLOLGAME-26OCT161900C9FUR-FUR,0.19,0.2,0.195,537.53
+2026-10-16T04:46:29Z,lol,117173205319911441,Galions vs Solary (EMEA Masters),2026-10-22T12:00:00Z,pre_match,Galions,galions,0.7684,gbm-v0.1,,,,,
+2026-10-16T04:46:29Z,lol,117173205319911441,Galions vs Solary (EMEA Masters),2026-10-22T12:00:00Z,pre_match,Solary,solary,0.2316,gbm-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.254,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1301,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,George Russell,russell,0.1222,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Oscar Piastri,piastri,0.0351,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Isack Hadjar,hadjar,0.0276,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Liam Lawson,lawson,0.0033,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Pierre Gasly,gasly,0.0022,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.0018,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Nico Hülkenberg,hulkenberg,0.0012,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Gabriel Bortoleto,bortoleto,0.0011,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Franco Colapinto,colapinto,0.0008,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Oliver Bearman,bearman,0.0006,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Carlos Sainz,sainz,0.0006,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Alexander Albon,albon,0.0004,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Fernando Alonso,alonso,0.0004,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Esteban Ocon,ocon,0.0003,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,,,,,
+2026-10-16T04:50:43Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,,,,,
+2026-10-21T01:22:29Z,lol,117173205319911441,Galions vs Solary (EMEA Masters),2026-10-22T12:00:00Z,pre_match,Galions,galions,0.7684,gbm-v0.1,KXLOLGAME-26OCT220800SLYGAL-GAL,0.53,0.54,0.535,8443.77
+2026-10-21T01:22:29Z,lol,117173205319911441,Galions vs Solary (EMEA Masters),2026-10-22T12:00:00Z,pre_match,Solary,solary,0.2316,gbm-v0.1,KXLOLGAME-26OCT220800SLYGAL-SLY,0.46,0.48,0.47,2807.94
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.254,clogit-v0.1,KXF1RACE-UNIS26-VER,0.47,0.48,0.475,10731.38
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,KXF1RACE-UNIS26-ANT,0.27,0.28,0.275,7587.42
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1301,clogit-v0.1,KXF1RACE-UNIS26-LEC,0.08,0.09,0.08499999999999999,6431.42
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,George Russell,russell,0.1222,clogit-v0.1,KXF1RACE-UNIS26-RUS,0.09,0.1,0.095,9115.54
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.05,0.06,0.055,9928.05
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,KXF1RACE-UNIS26-HAM,0.05,0.06,0.055,5202.69
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Oscar Piastri,piastri,0.0351,clogit-v0.1,KXF1RACE-UNIS26-PIA,0.01,0.02,0.015,1464.21
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Isack Hadjar,hadjar,0.0276,clogit-v0.1,KXF1RACE-UNIS26-HAD,0.02,0.03,0.025,574.28
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Liam Lawson,lawson,0.0033,clogit-v0.1,KXF1RACE-UNIS26-LAW,0.0,0.01,0.01,93.51
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Pierre Gasly,gasly,0.0022,clogit-v0.1,KXF1RACE-UNIS26-GAS,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.0018,clogit-v0.1,KXF1RACE-UNIS26-LIN,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Nico Hülkenberg,hulkenberg,0.0012,clogit-v0.1,KXF1RACE-UNIS26-HUL,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Gabriel Bortoleto,bortoleto,0.0011,clogit-v0.1,KXF1RACE-UNIS26-BOR,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Franco Colapinto,colapinto,0.0008,clogit-v0.1,KXF1RACE-UNIS26-COL,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Oliver Bearman,bearman,0.0006,clogit-v0.1,KXF1RACE-UNIS26-BEA,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Carlos Sainz,sainz,0.0006,clogit-v0.1,KXF1RACE-UNIS26-SAI,0.0,0.01,0.01,93.51
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,KXF1RACE-UNIS26-STR,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Alexander Albon,albon,0.0004,clogit-v0.1,KXF1RACE-UNIS26-ALB,0.0,0.01,0.01,514.34
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Fernando Alonso,alonso,0.0004,clogit-v0.1,KXF1RACE-UNIS26-ALO,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Esteban Ocon,ocon,0.0003,clogit-v0.1,KXF1RACE-UNIS26-OCO,0.0,0.01,0.0,0.0
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,KXF1RACE-UNIS26-BOT,0.0,0.01,0.01,935.19
+2026-10-21T01:24:51Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,KXF1RACE-UNIS26-PER,0.0,0.01,0.0,0.0
