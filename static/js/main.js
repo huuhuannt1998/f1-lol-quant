@@ -149,22 +149,53 @@
   }
   function edgeMin() { return (state.data.meta || {}).edge_min || 0.05; }
 
+  // "Bet check": is any side cheaper on Kalshi than the model's chance?
+  // A price of 41¢ = the market gives about 41%. Good price = model chance
+  // minus price minus Kalshi's fee is at least edge_min (5¢ per $1).
+  function betCheck(sides, caution) {   // sides: [{name, p, ask}]; caution(best) -> text or null
+    var best = null;
+    sides.forEach(function (s) {
+      var e = netEdge(s.p, s.ask);
+      if (e != null && (!best || e > best.e)) best = { name: s.name, p: s.p, ask: s.ask, e: e };
+    });
+    if (!best) return null;
+    var warn = best.e >= edgeMin() && caution ? caution(best) : null;
+    if (warn) {
+      return h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, 'Bet check'),
+        h('span', null, 'Model sees ' + best.name + ' as cheap at ' + cents(best.ask) + ' (model ' + prob(best.p) + '), but be careful: ' + warn));
+    }
+    var line = best.e >= edgeMin()
+      ? h('span', { class: 'pick-value' }, 'Good price: buy ' + best.name + ' at ' + cents(best.ask) +
+          '. The model gives ' + prob(best.p) + ', so you gain about ' + Math.round(best.e * 100) + '¢ per $1 after fees.')
+      : h('span', null, 'Skip. ' + (best.e > 0
+          ? 'Best price is ' + best.name + ' at ' + cents(best.ask) + ' vs a model chance of ' + prob(best.p) +
+            ': only ' + Math.round(best.e * 100) + '¢ after fees, under the ' + cents(edgeMin()) + ' bar.'
+          : 'Kalshi already prices every side at or above the model\'s chance.'));
+    return h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, 'Bet check'), line);
+  }
+
   function lolPick(m, k) {
     if (!isNum(m.p1)) return null;
     var one = m.p1 >= 0.5, name = one ? m.team1 : m.team2, p = one ? m.p1 : 1 - m.p1;
     var conf = p >= 0.75 ? 'strong' : p >= 0.6 ? 'clear' : 'lean';
-    var parts = [h('span', { class: 'pick-label' }, 'Model pick'), h('strong', null, name + ' ' + prob(p)),
+    var rows = [h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, "Model's pick"),
+      h('strong', null, name + ' wins'), h('span', null, prob(p) + ' chance'),
       h('span', { class: 'pick-conf ' + conf },
-        conf === 'strong' ? 'strong favourite' : conf === 'clear' ? 'clear favourite' : 'lean, close match')];
-    if (k) {
-      var e1 = netEdge(m.p1, k.t1 && k.t1.yes_ask), e2 = netEdge(1 - m.p1, k.t2 && k.t2.yes_ask);
-      var best = e1 != null && (e2 == null || e1 >= e2) ? [m.team1, e1, k.t1.yes_ask]
-        : e2 != null ? [m.team2, e2, k.t2.yes_ask] : null;
-      parts.push(best && best[1] >= edgeMin()
-        ? h('span', { class: 'pick-value' }, 'Value: ' + best[0] + ' at ' + cents(best[2]) + ' (' + signed(best[1] * 100, 0) + '¢ after fees)')
-        : h('span', { class: 'muted' }, 'no value at current Kalshi prices'));
-    }
-    return h('div', { class: 'pick' }, parts);
+        conf === 'strong' ? 'strong favourite' : conf === 'clear' ? 'clear favourite' : 'close match')),
+      k ? betCheck([{ name: m.team1, p: m.p1, ask: k.t1 && k.t1.yes_ask },
+                    { name: m.team2, p: 1 - m.p1, ask: k.t2 && k.t2.yes_ask }], m.intl ? intlCaution : null) : null];
+    return h('div', { class: 'pick' }, rows);
+  }
+
+  // The backtest's calibration slope on international matches: above 1 the
+  // model is too timid there (favourites win more often than it says), so
+  // the underdogs it calls cheap are often not bargains. Shown only then.
+  function intlCaution(best) {
+    var d = state.data.lol || {}, b = d.backtest && d.backtest.metrics, c = d.model && d.model.chosen;
+    var slope = b && c && b[c] && b[c].international && b[c].international.calibration_slope;
+    if (!isNum(slope) || slope < 1.1 || best.p >= 0.5) return null;
+    return 'on international matches the model has been too timid (favourites won more often than it said), ' +
+      'so it rates underdogs like this one too high. Treat this as "no clear bet".';
   }
 
   function f1Pick(n) {
@@ -172,21 +203,19 @@
     if (!ds.length) return null;
     var podium = ds.slice().sort(function (a, b) { return (b.p_podium || 0) - (a.p_podium || 0); }).slice(0, 3);
     var priced = ds.filter(function (x) { return x.kalshi; });
-    var value = priced.map(function (x) { return { x: x, e: netEdge(x.p_win, x.kalshi.yes_ask), ask: x.kalshi.yes_ask }; })
-      .filter(function (v) { return v.e != null && v.e >= edgeMin(); })
-      .sort(function (a, b) { return b.e - a.e; });
     return h('div', { class: 'pick' },
-      h('span', { class: 'pick-label' }, 'Model pick to win'), h('strong', null, ds[0].code + ' ' + prob(ds[0].p_win)),
-      h('span', { class: 'muted' }, 'podium: ' + podium.map(function (x) { return x.code + ' ' + prob(x.p_podium); }).join(', ')),
-      value.length
-        ? h('span', { class: 'pick-value' }, 'Value: ' + value.slice(0, 3).map(function (v) {
-            return v.x.code + ' at ' + cents(v.ask) + ' (' + signed(v.e * 100, 0) + '¢)'; }).join(', '))
-        : priced.length ? h('span', { class: 'muted' }, 'no value at current Kalshi prices') : null);
+      h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, "Model's pick"),
+        h('strong', null, ds[0].code + ' wins'), h('span', null, prob(ds[0].p_win) + ' chance'),
+        h('span', { class: 'muted' }, '· likeliest podium: ' + podium.map(function (x) { return x.code + ' ' + prob(x.p_podium); }).join(', '))),
+      priced.length ? betCheck(priced.map(function (x) { return { name: x.code, p: x.p_win, ask: x.kalshi.yes_ask }; })) : null);
   }
 
   function pickNote(text) {
-    return h('p', { class: 'note' }, text + ' "Value" means model probability minus the Kalshi ask minus the fee is at least ' +
-      cents(edgeMin()) + '. These are forecasts, not betting advice.');
+    return h('p', { class: 'note' }, h('strong', null, 'How to read the cards. '),
+      "Model's pick = who the model thinks wins. " + text + ' Bet check = is anyone cheap on Kalshi? A price of 40¢ means the market ' +
+      'gives about 40%. If the model\'s chance is at least ' + cents(edgeMin()) + ' higher than the price after Kalshi\'s fee, it says ' +
+      '"Good price"; otherwise "Skip". The pick and the good price can be different teams: an underdog priced too low can be the ' +
+      'better bet even though the model expects it to lose. Forecasts, not betting advice.');
   }
 
   function seedTag(s) { return s ? h('small', { class: 'muted seed' }, ' ' + s) : null; }
@@ -282,8 +311,7 @@
     box.appendChild(legend());
     var live = d.backtest && d.backtest.metrics && d.model && d.backtest.metrics[d.model.chosen];
     if (live && live.all && isNum(live.all.accuracy)) {
-      box.appendChild(pickNote('Model pick = the team the model rates likelier. In the walk-forward backtest the pick won ' +
-        pct(live.all.accuracy) + ' of ' + live.all.n + ' matches.'));
+      box.appendChild(pickNote('Tested on ' + live.all.n + ' past matches, the pick was right ' + pct(live.all.accuracy) + ' of the time.'));
     }
     var byDay = {}, order = [];
     (d.upcoming || []).forEach(function (m) {
@@ -406,8 +434,8 @@
       nextBox.appendChild(legend());
       var fb = d.backtest || {}, st = fb.metrics && fb.chosen && fb.metrics[n.stage] && fb.metrics[n.stage][fb.chosen[n.stage]];
       if (st && isNum(st.favourite_won)) {
-        nextBox.appendChild(pickNote('In the backtest the model\'s favourite won ' + pct(st.favourite_won) + ' of ' + st.races +
-          ' races at this stage (' + (n.stage === 'post_quali' ? 'after qualifying' : 'before qualifying') + ').'));
+        nextBox.appendChild(pickNote('Tested on ' + st.races + ' past races ' + (n.stage === 'post_quali' ? 'after' : 'before') +
+          ' qualifying, the pick won ' + pct(st.favourite_won) + ' of them (F1 is hard: about 20 drivers).'));
       }
       var rows = n.drivers.map(function (x, i) {
         var q = x.kalshi;
