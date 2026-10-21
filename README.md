@@ -43,7 +43,7 @@ So you don't retrain anything by hand. As games and races finish, the next hourl
 
 **Target.** `y = 1` if team 1 wins the *series*. Kalshi and the page both work at the series level.
 
-**Training data.** About 6,150 completed pro matches since Worlds 2023 (October 2023, as far back as lolesports serves) from 21 leagues (Worlds, MSI, First Stand, LCK, LPL, LEC, LCS, CBLOL, LCP and second-tier leagues). The source is lolesports.com's schedule.
+**Training data.** About 28,800 completed pro series since 2014: from October 2023 the lolesports schedule (21 leagues), and before that series rebuilt from Oracle's Elixir game files (`pipeline/lol/oe_history.py`, committed as `history/lol_oe_series.csv`; 1,164 MSI and Worlds series). The older history cut international log loss from 0.622 to 0.599. Leagues include (Worlds, MSI, First Stand, LCK, LPL, LEC, LCS, CBLOL, LCP and second-tier leagues). The source is lolesports.com's schedule.
 
 **Step 1: Elo ratings** (`pipeline/lol/elo.py`). This is online learning: one pass through history, with no separate fitting step.
 - P(A beats B in one game) = 1 / (1 + 10^((R_B − R_A)/400)).

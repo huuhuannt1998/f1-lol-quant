@@ -121,3 +121,11 @@ Fit `a` and `b` walk-forward, like everything else: for each month, use only pic
 You need roughly 100+ settled picks on events the model also forecast before `a` and `b` mean anything; the page counts them for you.
 
 *Exercise:* once you have 100 picks, fit the blend with `sklearn.linear_model.LogisticRegression(fit_intercept=False)` on the two logits, walk-forward by month, and compare its log loss with the model's on the same events.
+
+## 12. More data beats a cleverer model (here)
+
+lolesports only serves matches from Worlds 2023 on, so the model had about 110 international matches to learn how regions compare. Oracle's Elixir has every pro game since 2014. `pipeline/lol/oe_history.py` groups those games into series (same league, same two teams, game numbers 1, 2, 3…, hours apart), which adds 1,164 MSI and Worlds series. Decided on Elo log loss before the backtest window, international matches went 0.639 → 0.590 while domestic matches stayed level. The live gbm's international log loss dropped 0.622 → 0.599.
+
+The lesson is about *which* data is scarce. Domestic matches were plentiful already, so more of them changed nothing. International matches are the only link between regions, and every extra one counted. A side effect worth noticing: with the old history, the model's Worlds favourites moved much closer to Kalshi's prices. Many "cheap underdogs" it had flagged were the model's own ignorance, not market mistakes.
+
+*Exercise:* `python -m pipeline oe-history --download` rebuilds the file. Change `LOL_OE_HISTORY_FROM` to 2018 or 2020 and rerun `python -m pipeline update --offline --sport lol`: how does international log loss change with each year of history removed?

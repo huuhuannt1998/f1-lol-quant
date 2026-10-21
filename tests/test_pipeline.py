@@ -347,6 +347,44 @@ def test_upcoming_skips_stale_rows():
     assert list(tbd_matches(m)["match_id"]) == ["3"]      # shown as a slot, never forecast
 
 
+def test_oe_history_rebuilds_series():
+    from pipeline.lol import oe_history
+
+    def g(gid, date, game, a, b, a_won, league="LCK"):
+        return [{"gameid": gid, "league": league, "date": date, "game": game, "position": "team",
+                 "teamname": a, "result": int(a_won)},
+                {"gameid": gid, "league": league, "date": date, "game": game, "position": "team",
+                 "teamname": b, "result": int(not a_won)}]
+
+    rows = pd.DataFrame(
+        g("g1", "2022-06-01 08:00:00", 1, "T1", "Gen.G", True) +     # Bo3: T1 2-1
+        g("g2", "2022-06-01 09:00:00", 2, "Gen.G", "T1", True) +
+        g("g3", "2022-06-01 10:00:00", 3, "T1", "Gen.G", True) +
+        g("g4", "2022-06-02 08:00:00", 1, "T1", "Gen.G", False) +    # next day: a new Bo1, Gen.G wins
+        g("g5", "2022-06-01 08:30:00", 1, "X", "Y", True, league="Unknown League") +   # untracked league
+        [{"gameid": "g6", "league": "LCK", "date": "2022-06-03 08:00:00", "game": 1, "position": "team",
+          "teamname": None, "result": 1}])
+    s = oe_history.series_from_games(oe_history.games_from_team_rows(rows))
+    assert len(s) == 2
+    first, second = s.iloc[0], s.iloc[1]
+    assert first["best_of"] == 3 and {first["team1"], first["team2"]} == {"t1", "gen g esports"}
+    assert first["winner"] == (1 if first["team1"] == "t1" else 2) and first["t1_wins"] + first["t2_wins"] == 3
+    assert second["best_of"] == 1 and second["league"] == "lck"
+
+
+def test_oe_history_stops_where_lolesports_starts(tmp_path, monkeypatch):
+    from pipeline.lol import lolesports, oe_history
+    path = tmp_path / "hist.csv"
+    lolesports.typed(pd.DataFrame([_lol_row("oe:1", "2019-05-01T08:00:00Z", "completed", winner=1),
+                                   _lol_row("oe:2", "2023-11-01T08:00:00Z", "completed", winner=1)])).to_csv(path, index=False)
+    monkeypatch.setattr(config, "LOL_OE_HISTORY_FILE", path)
+    store = lolesports.typed(pd.DataFrame([_lol_row("100", "2023-10-19T08:00:00Z", "completed", winner=2)]))
+    assert list(oe_history.add_history(store, from_year=2018)["match_id"]) == ["oe:1", "100"]   # no overlap
+    assert list(oe_history.add_history(store, from_year=2020)["match_id"]) == ["100"]
+    monkeypatch.setattr(config, "LOL_OE_HISTORY_FROM", None)
+    assert list(oe_history.add_history(store)["match_id"]) == ["100"]                          # switched off
+
+
 def test_worlds_seed_lookup():
     from pipeline.lol.run import seed
     assert seed("worlds", "2026-10-23T23:00:00Z", "T1") == "LCK #3"
