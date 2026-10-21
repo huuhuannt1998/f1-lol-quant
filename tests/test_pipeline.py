@@ -217,6 +217,28 @@ def test_parse_git_log_gives_first_commit_time_per_file():
     assert parse_git_log(out) == {"b.csv": "2026-10-22T10:00:00+00:00", "a.csv": "2026-10-21T09:00:00-04:00"}
 
 
+def test_oe_download_stamps_our_time_not_drives(tmp_path, monkeypatch):
+    import os
+    import sys
+    import time
+    from types import SimpleNamespace
+    from pipeline.lol import oracles_elixir as oe
+    monkeypatch.setattr(config, "CACHE", tmp_path)
+    monkeypatch.setattr(config, "OE_AUTO_DOWNLOAD", True)
+    year = pd.Timestamp.now(tz="UTC").year
+    name = f"{year}_LoL_esports_match_data_from_OraclesElixir.csv"
+
+    def fake_download(id, output, quiet):          # like gdown: file dated by Drive, 3 days ago
+        open(output, "w").write("x\n")
+        old = time.time() - 3 * 86400
+        os.utime(output, (old, old))
+
+    monkeypatch.setitem(sys.modules, "gdown", SimpleNamespace(
+        download_folder=lambda **kw: [SimpleNamespace(path=f"OE/{name}", id="f")], download=fake_download))
+    oe.download(years=[year])
+    assert time.time() - (tmp_path / "oe" / name).stat().st_mtime < 60   # not re-downloaded next hour
+
+
 def test_scorecard_can_ignore_never_settling_events(tmp_ledger):
     start = iso(utcnow() + timedelta(hours=2))
     rows = [{"sport": "lol", "event_id": e, "event_name": f"m{e}", "stage": "pre_match", "selection": "A",

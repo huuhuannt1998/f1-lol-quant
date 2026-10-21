@@ -147,6 +147,13 @@ def update(max_pages: int = 400) -> pd.DataFrame:
     ids = ",".join(league_ids().values())
     history_start = parse_ts(config.LOL_HISTORY_START + "T00:00:00Z")
     settled_before = utcnow() - pd.Timedelta(days=4)
+    # Walk all the way back while the store does not reach LOL_HISTORY_START
+    # yet (first run, or the start date was moved earlier). 45 days of slack:
+    # seasons start in mid-January, so a finished backfill never re-triggers.
+    earliest = pd.to_datetime(store["start_time"], utc=True).min()
+    backfill = pd.isna(earliest) or earliest > pd.Timestamp(history_start) + pd.Timedelta(days=45)
+    if backfill:
+        print(f"  lolesports: back-filling history to {config.LOL_HISTORY_START}")
 
     rows, token = [], None
     # Also take one step "newer" to see upcoming matches beyond the first page.
@@ -172,7 +179,7 @@ def update(max_pages: int = 400) -> pd.DataFrame:
         if not times or min(times) < history_start:
             break
         all_known = all(r["match_id"] in known_done for r in parsed)
-        if all_known and max(times) < settled_before:
+        if all_known and max(times) < settled_before and not backfill:
             break
         token = (page.get("pages") or {}).get("older")
 

@@ -31,9 +31,12 @@ USER_AGENT = "f1-lol-quant/0.1 (personal research project; github pages)"
 LOLESPORTS_API = "https://esports-api.lolesports.com/persisted/gw"
 # Public key used by lolesports.com's own front end (not a secret).
 LOLESPORTS_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
-# Match history used to build ratings. Older seasons add little once ratings
-# have converged, and every extra page is another request.
-LOL_HISTORY_START = "2024-01-01"
+# Match history used to build ratings. 2023-10 is as far back as lolesports'
+# schedule goes for these leagues (Worlds 2023). Starting there instead of
+# 2024-01 adds 40 international matches, the scarce cross-region evidence:
+# pre-window international Elo log loss 0.653 -> 0.639 (2026-10-21). An
+# earlier date would make every run try (and fail) to back-fill further.
+LOL_HISTORY_START = "2023-10-01"
 # Leagues to pull. Unknown slugs are skipped with a warning. Small regional
 # leagues are worth including: they are where Worlds' minor-region teams
 # build up their ratings.

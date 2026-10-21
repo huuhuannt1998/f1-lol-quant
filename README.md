@@ -43,7 +43,7 @@ So you don't retrain anything by hand. As games and races finish, the next hourl
 
 **Target.** `y = 1` if team 1 wins the *series*. Kalshi and the page both work at the series level.
 
-**Training data.** About 6,100 completed pro matches since January 2024 from 21 leagues (Worlds, MSI, First Stand, LCK, LPL, LEC, LCS, CBLOL, LCP and second-tier leagues). The source is lolesports.com's schedule.
+**Training data.** About 6,150 completed pro matches since Worlds 2023 (October 2023, as far back as lolesports serves) from 21 leagues (Worlds, MSI, First Stand, LCK, LPL, LEC, LCS, CBLOL, LCP and second-tier leagues). The source is lolesports.com's schedule.
 
 **Step 1: Elo ratings** (`pipeline/lol/elo.py`). This is online learning: one pass through history, with no separate fitting step.
 - P(A beats B in one game) = 1 / (1 + 10^((R_B − R_A)/400)).
@@ -126,7 +126,7 @@ Two lessons are hiding in that table:
 - **Accuracy and log loss can disagree.** Before qualifying, the one-feature baseline picks the winner more often (64%), but its probabilities are worse (log loss 1.79 vs 1.53). Probabilities, not picks, are what a forecast is judged on.
 - **The selection rule matters.** After qualifying, clogit is better over all 109 races, but the live choice uses only the last three seasons, where the baseline did slightly better.
 
-With Oracle's Elixir data (a local run, not yet in the Action), the LoL gbm improves to log loss 0.609, with international 0.602.
+With Oracle's Elixir in-game stats the LoL gbm improved to log loss 0.609 (international 0.602) in a local test; the Action uses them too since 2026-10-21.
 
 ### Your own picks
 

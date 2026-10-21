@@ -20,9 +20,10 @@ jobs:
     timeout-minutes: 40
     env:
       PYTHONUNBUFFERED: "1"
-      # Oracle's Elixir lives on Google Drive, whose per-file download quota
-      # fails often; the Action forecasts without it (Elo + form features).
-      F1LOL_OE_DOWNLOAD: "0"
+      # Oracle's Elixir (in-game stats) comes from Google Drive. Past years are
+      # downloaded once, the current year about daily; after a Drive quota
+      # refusal the pipeline waits 24 h and forecasts with what it has.
+      F1LOL_OE_DOWNLOAD: "1"
       # The Action is the only writer of the committed ledger (local runs use
       # cache/ledger_local; see pipeline/config.py).
       F1LOL_LEDGER_DIR: ${{ github.workspace }}/ledger
@@ -46,9 +47,24 @@ jobs:
       - name: Restore data cache
         uses: actions/cache@v4
         with:
-          path: cache
+          path: |
+            cache
+            !cache/oe
           key: data-cache-${{ github.run_id }}
           restore-keys: data-cache-
+
+      # The Oracle's Elixir CSVs (~240 MB) get their own cache, saved once a
+      # day instead of every hour.
+      - name: Day stamp
+        id: day
+        run: echo "day=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Oracle's Elixir files
+        uses: actions/cache@v4
+        with:
+          path: cache/oe
+          key: oe-${{ steps.day.outputs.day }}
+          restore-keys: oe-
 
       - name: Fetch, forecast, write data/*.json
         run: python -m pipeline update

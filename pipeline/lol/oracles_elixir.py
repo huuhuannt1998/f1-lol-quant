@@ -14,6 +14,7 @@ by hand; the rest of the pipeline works with or without these files.
 """
 from __future__ import annotations
 
+import os
 import re
 import time
 
@@ -79,6 +80,9 @@ def download(years=None, max_age_h: float = 20) -> list:
         if stale:
             try:
                 gdown.download(id=f.id, output=str(dest), quiet=True)
+                # gdown keeps Drive's modified time; stamp our download time so
+                # "older than max_age_h" means "we fetched it that long ago".
+                os.utime(dest, None)
                 print(f"  OE: downloaded {name}")
             except Exception as e:  # noqa: BLE001
                 msg = str(e)
