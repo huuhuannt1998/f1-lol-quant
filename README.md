@@ -22,6 +22,119 @@ GitHub Action (hourly) ──► python -m pipeline update ──► data/*.json
 | Track record | Ledger only: settled forecasts, model vs market log loss and Brier, calibration chart, paper-trading P&L |
 | Method | Walk-forward backtest tables for every model, the live F1 model weights, data credits |
 
+## How the models are trained
+
+Nothing here comes from another site's predictions. The APIs supply only schedules, results and game statistics. Every forecast comes from models trained in this repo, from scratch, on every run. The ideas are explained step by step, with exercises, in [docs/LEARNING.md](docs/LEARNING.md). This section is the map.
+
+### The loop, every hour
+
+The GitHub Action runs `python -m pipeline update` at :17 past each hour. Each run:
+
+1. **Fetches** new schedules and results (lolesports, Jolpica, optionally Oracle's Elixir).
+2. **Rebuilds every feature from scratch** by replaying history in time order. Each match or race gets features computed only from what had happened *before* it (no leakage, see below).
+3. **Tunes** the few hyperparameters (Elo's K and off-season shrink) on data from *before* the evaluation window.
+4. **Backtests** every candidate model walk-forward on the most recent period and scores it.
+5. **Picks** the model with the best backtest log loss, refits it on *all* finished events, and forecasts the upcoming ones.
+6. **Logs** each forecast to `ledger/predictions.csv` before the event starts, and records results as they come in (`ledger/results.csv`).
+
+So you don't retrain anything by hand. As games and races finish, the next hourly run includes them: Elo moves, form averages update, the models are refit, and the backtest and ledger numbers on the Track record and Method tabs change with them.
+
+### League of Legends: Elo, then a classifier on top
+
+**Target.** `y = 1` if team 1 wins the *series*. Kalshi and the page both work at the series level.
+
+**Training data.** About 6,100 completed pro matches since January 2024 from 21 leagues (Worlds, MSI, First Stand, LCK, LPL, LEC, LCS, CBLOL, LCP and second-tier leagues). The source is lolesports.com's schedule.
+
+**Step 1: Elo ratings** (`pipeline/lol/elo.py`). This is online learning: one pass through history, with no separate fitting step.
+- P(A beats B in one game) = 1 / (1 + 10^((R_B − R_A)/400)).
+- After every match, each game counts: R_A += K × (games A won − games played × p). A 3–0 therefore moves ratings more than a 3–2.
+- K = 24 and off-season shrink = 0.5 are chosen by grid search (K ∈ {16, 24, 32, 40}, shrink ∈ {0.15, 0.3, 0.5}). The search scores log loss on matches *before* the backtest window.
+- International games use K × 3.0 (`ELO_INTL_K_MULT`). They are the only evidence of how regions compare. The multiplier was chosen with `python -m pipeline backtest lol`, again on pre-window data.
+- A new team starts at its league's average rating. Each new year, ratings shrink part-way toward the league mean (roster changes).
+- A game probability becomes a series probability with the negative-binomial formula (`p_series`): a 60% game edge is 64.8% in a Bo3 and 68.3% in a Bo5.
+
+**Step 2: point-in-time features** (`pipeline/lol/model.py::historical_features`). Each is computed from the state *before* the match:
+
+| Feature | Meaning |
+|---|---|
+| `elo_diff` | team 1's rating minus team 2's |
+| `elo_logit` | log-odds of Elo's series probability |
+| `form_diff` | difference in win rate over each team's last 10 games |
+| `exp_min` | log(1 + games played) of the less experienced team (new teams are less certain) |
+| `rest_diff` | days since each team's last match, capped at 30 |
+| `intl`, `best_of` | international event flag; Bo1/Bo3/Bo5 |
+| `oe_*_diff` (optional) | Oracle's Elixir in-game stats, as exponentially weighted averages over past games (half-life 8 games): gold and XP difference at 15 min, first dragon, first tower, game result. Joined *as of* each match's start, never including that match. |
+
+**Step 3: three candidate models** (`MatchModel`):
+- **elo**: the Elo series probability as is. No fitting; it's the baseline to beat.
+- **logreg**: standardized features → L2-regularized logistic regression (C = 0.5). It's linear, so it can only re-weight features.
+- **gbm**: LightGBM gradient-boosted trees (250 trees, learning rate 0.03, 15 leaves, at least 40 samples per leaf, 80% row and column subsampling, L2 = 1). It can learn interactions, for example that form matters more in a Bo1. The settings are deliberately conservative because a few thousand rows overfit easily.
+- **Symmetry trick:** "team 1" is an arbitrary label. Every match is trained from both sides (antisymmetric features negated, label flipped), and the two views are averaged at prediction time. P(A beats B) + P(B beats A) is then exactly 1.
+
+**Step 4: walk-forward validation.** For each month of the last year, fit on every match *before* that month and predict that month (about 2,000 predictions). A random train/test split would let the model see the future (same teams, same patch) and flatter every number.
+
+### Formula 1: a race is a multi-way contest
+
+**Target.** Who wins the race. The model needs probabilities for all 20+ drivers that sum to 1.
+
+**Training data.** Every race and qualifying session since 2014 (275 races) from Jolpica, the Ergast successor.
+
+**Two forecast moments.** `pre_quali` (form only) and `post_quali` (adds the grid). They are separate models because they may use different information.
+
+**Features** (`pipeline/f1/model.py::build_entries`). Exponentially weighted averages with a half-life of 5 races, shrunk toward a prior between seasons, and shrunk harder in regulation-reset years (2014, 2022, 2026):
+- the driver's recent finishing position, points and qualifying position;
+- the constructor's recent points and qualifying;
+- DNF rate (half-life 10);
+- finishing record at this circuit (last 5 visits, shrunk toward overall form);
+- qualifying gap to the teammate;
+- log(starts), as experience;
+- an early-season flag in reset years.
+
+After qualifying it adds log(qualifying position), the gap to pole in %, and a front-row flag.
+
+**Models:**
+- **clogit**, a conditional logit. Each driver gets a score s = w·x and P(win) = exp(s_i) / Σ_j exp(s_j) *within the race* (a softmax). Training maximizes the log-probability of the actual winner, with an L2 penalty, using L-BFGS on standardized features.
+- **baseline**: the same model with one feature (constructor form before qualifying, qualifying position after).
+- **gbm**: LightGBM LambdaRank, a learning-to-rank model, trained on finishing order (relevance 3 for the win, 2 for the podium, 1 for the points). A softmax temperature turns its scores into probabilities; the temperature is fitted on races the ranker did not train on.
+
+**Simulation.** Podium and points chances come from 20,000 simulated finishing orders: the Plackett–Luce model, sampled with the Gumbel trick.
+
+**Validation.** Walk-forward over every race since 2022 (109 races), refitting every 4 rounds. The main metric is *winner log loss*: the average −log(probability given to the actual winner). Guessing uniformly over 20 drivers scores 3.0.
+
+### How a model is judged (and chosen)
+
+- **Log loss** punishes confident mistakes hard. Lower is better; a coin flip scores 0.693.
+- **Brier score** is the mean squared error of the probability.
+- **Calibration**: when the model says 70%, does that side win about 70% of the time? The *calibration slope* puts this in one number: 1 means calibrated, above 1 means under-confident.
+- **Accuracy** comes last. It ignores *how* confident the model was.
+
+The live model is whichever has the best backtest log loss: LoL on the whole window, F1 averaged over the last three seasons. That is a mild selection bias, and it is reported, not hidden.
+
+Live numbers on 2026-10-21 (they change every hour; see the Method tab):
+
+| | Model | Log loss | Brier | Accuracy / favourite won |
+|---|---|---|---|---|
+| LoL (2,029 matches) | Elo | 0.621 | 0.214 | 65.7% |
+| | logreg | 0.622 | 0.214 | 65.6% |
+| | **gbm (live)** | **0.613** | **0.212** | **66.5%** |
+| F1 after quali (109 races) | **baseline (live)** | 1.334 | – | 59.6% |
+| | clogit | 1.111 | – | 61.5% |
+| F1 before quali | **clogit (live)** | **1.527** | – | 44.0% |
+| | baseline | 1.790 | – | 64.2% |
+
+Two lessons are hiding in that table:
+- **Accuracy and log loss can disagree.** Before qualifying, the one-feature baseline picks the winner more often (64%), but its probabilities are worse (log loss 1.79 vs 1.53). Probabilities, not picks, are what a forecast is judged on.
+- **The selection rule matters.** After qualifying, clogit is better over all 109 races, but the live choice uses only the last three seasons, where the baseline did slightly better.
+
+With Oracle's Elixir data (a local run, not yet in the Action), the LoL gbm improves to log loss 0.609, with international 0.602.
+
+### Why the numbers can be trusted, and where they can't
+
+- **No leakage.** Tests in `tests/test_pipeline.py` change a future result and check that no earlier feature moves.
+- **Walk-forward only.** No random splits; hyperparameters are tuned on data before the evaluation window.
+- **The ledger** is the honest scoreboard. A forecast is written down *before* the event and scored after it, so it can't be fooled by leakage or over-tuning. Compare it with the backtest once a few weeks of results are in.
+- **Weak spots.** Few international matches (cross-region strength rests on about 75 matches a year at MSI, Worlds and First Stand); roster changes; F1's 2026 regulation reset (little data); grid penalties not modelled.
+
 ## Run it on your Mac
 
 Shortest path, from the VS Code terminal: `bash run.sh` (set up + fetch + forecast), then `bash run.sh serve`. The manual steps are:
