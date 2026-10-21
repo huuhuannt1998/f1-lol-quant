@@ -44,6 +44,14 @@ def match_kalshi(up: pd.DataFrame, events: list[dict]) -> dict[int, dict]:
     return out
 
 
+def seed(league: str | None, start_time, team: str | None) -> str | None:
+    """'LCK #3' for a team at an international event listed in config.LOL_SEEDS."""
+    if not league or not team or start_time is None or pd.isna(start_time):
+        return None
+    key = f"{league}-{pd.Timestamp(start_time).year}"
+    return config.LOL_SEEDS.get(key, {}).get(team_key(team))
+
+
 def eval_window_start(matches: pd.DataFrame, now: pd.Timestamp) -> pd.Timestamp:
     """Backtest the last year, but leave at least 8 months of history first."""
     t = pd.to_datetime(matches["start_time"], utc=True)
@@ -69,7 +77,8 @@ def power_rankings(book, now: pd.Timestamp, exclude_tier2: bool = True) -> tuple
         before = [h for h in hist if pd.Timestamp(h[0]) < month_ago]
         ranks.append({"team": book.display.get(t, t), "league": league,
                       "elo": round(rating), "games": int(book.games[t]),
-                      "change_30d": round(rating - before[-1][1]) if before else None})
+                      "change_30d": round(rating - before[-1][1]) if before else None,
+                      "seed": config.LOL_SEEDS.get(f"worlds-{now.year}", {}).get(t)})
     ranks.sort(key=lambda x: -x["elo"])
     return ranks, n_tier2
 
@@ -159,6 +168,7 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
                 "best_of": int(r.best_of), "team1": r.team1, "team2": r.team2,
                 "code1": r.team1_code, "code2": r.team2_code,
                 "sel1": team_key(r.team1), "sel2": team_key(r.team2),   # ids a "My pick" is scored by
+                "seed1": seed(r.league, r.start_time, r.team1), "seed2": seed(r.league, r.start_time, r.team2),
                 "elo1": _f(r.r1_pre, 0), "elo2": _f(r.r2_pre, 0),
                 "p1": _f(r.p1), "p1_elo": _f(r.p_series_elo),
                 "kalshi": None}
@@ -210,7 +220,8 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
                 "best_of": int(r.best_of), "team1": r.team1, "team2": r.team2,
                 "score1": None if pd.isna(r.t1_wins) else int(r.t1_wins),
                 "score2": None if pd.isna(r.t2_wins) else int(r.t2_wins),
-                "winner": int(r.winner), "p1_pre": _f(r.p_series_elo)}
+                "winner": int(r.winner), "p1_pre": _f(r.p_series_elo),
+                "seed1": seed(r.league, r.start_time, r.team1), "seed2": seed(r.league, r.start_time, r.team2)}
                for r in rec.sort_values("start_time", ascending=False).itertuples(index=False)]
 
     # ---- power rankings (majors only; see power_rankings)

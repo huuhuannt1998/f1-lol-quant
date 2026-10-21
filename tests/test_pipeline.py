@@ -325,6 +325,15 @@ def test_upcoming_skips_stale_rows():
     assert list(tbd_matches(m)["match_id"]) == ["3"]      # shown as a slot, never forecast
 
 
+def test_worlds_seed_lookup():
+    from pipeline.lol.run import seed
+    assert seed("worlds", "2026-10-23T23:00:00Z", "T1") == "LCK #3"
+    assert seed("worlds", "2026-10-23T17:00:00Z", "Gen.G Esports") == "LCK #1"
+    assert seed("worlds", "2025-10-23T17:00:00Z", "T1") is None      # other year: not listed
+    assert seed("lck", "2026-06-01T08:00:00Z", "T1") is None         # seeds only for listed events
+    assert seed("worlds", None, "T1") is None
+
+
 def test_cross_league_events_do_not_change_a_teams_league():
     from pipeline.lol.model import historical_features
     t0 = pd.Timestamp("2026-03-01", tz="UTC")

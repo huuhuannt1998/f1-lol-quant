@@ -73,6 +73,23 @@ LOL_DROP_TIER2 = False
 # (postponed, cancelled, or never updated by lolesports) and ignored everywhere.
 LOL_STALE_HOURS = 48
 
+# Regional seeds at international events, shown next to team names. lolesports
+# has no seed field and seeds are fixed for the whole event, so they live here:
+# "<league slug>-<year>" -> {normalized lolesports team name: seed}. Worlds 2026
+# from the qualified-teams table (qualification path) on the event's Wikipedia
+# page, checked 2026-10-21. Add the next event's seeds here once they are known.
+LOL_SEEDS = {
+    "worlds-2026": {
+        "gen g esports": "LCK #1", "hanwha life esports": "LCK #2", "t1": "LCK #3", "dplus kia": "LCK #4",
+        "anyone s legend": "LPL #1", "bilibili gaming": "LPL #2", "top esports": "LPL #3",
+        "invictus gaming": "LPL #4",
+        "g2 esports": "LEC #1", "movistar koi": "LEC #2", "karmine corp": "LEC #3",
+        "team liquid alienware": "LCS #1", "lyon": "LCS #2", "cloud9 kia": "LCS #3",
+        "team secret whales": "LCP #1", "ctbc flying oyster": "LCP #2", "mvk esports": "LCP #3",
+        "los": "CBLOL #1", "furia": "CBLOL #2",
+    },
+}
+
 ELO_INIT = 1500.0
 ELO_K = 24.0                 # tuned by `python -m pipeline backtest`
 ELO_SCALE = 400.0

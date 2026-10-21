@@ -189,6 +189,8 @@
       cents(edgeMin()) + '. These are forecasts, not betting advice.');
   }
 
+  function seedTag(s) { return s ? h('small', { class: 'muted seed' }, ' ' + s) : null; }
+
   // -------------------------------------------------------- my picks
   // A pick is one small CSV committed to ledger/my_picks/ through GitHub's
   // new-file editor; the commit time locks it (pipeline/picks.py).
@@ -303,8 +305,8 @@
       var ok = fav != null && fav === r.winner;
       return h('tr', null,
         h('td', { class: 'num' }, fmtDate(r.start)), h('td', null, r.league),
-        h('td', null, h('span', { style: r.winner === 1 ? 'font-weight:650' : '' }, r.team1), ' vs ',
-          h('span', { style: r.winner === 2 ? 'font-weight:650' : '' }, r.team2)),
+        h('td', null, h('span', { style: r.winner === 1 ? 'font-weight:650' : '' }, r.team1), seedTag(r.seed1), ' vs ',
+          h('span', { style: r.winner === 2 ? 'font-weight:650' : '' }, r.team2), seedTag(r.seed2)),
         h('td', { class: 'r' }, (r.score1 != null ? r.score1 + '–' + r.score2 : '–') + ' (Bo' + r.best_of + ')'),
         h('td', null, favName + ' ', h('span', { class: 'muted' }, prob(favP))),
         h('td', null, fav == null ? '–' : h('span', { class: ok ? 'hit' : 'miss' }, ok ? '✓ hit' : '✗ miss')));
@@ -313,12 +315,12 @@
 
     var rk = (d.rankings || []).slice(0, 40).map(function (t, i) {
       return h('tr', null, h('td', { class: 'r' }, i + 1), h('td', { style: 'font-weight:600' }, t.team),
-        h('td', { class: 'muted' }, (t.league || '').toUpperCase()), h('td', { class: 'r' }, t.elo),
+        h('td', { class: 'muted' }, (t.league || '').toUpperCase()), h('td', null, t.seed || ''), h('td', { class: 'r' }, t.elo),
         h('td', { class: 'r' }, t.change_30d == null ? '–' : h('span', { class: t.change_30d > 0 ? 'edge pos' : 'muted' }, signed(t.change_30d, 0))),
         h('td', { class: 'r muted' }, t.games));
     });
     var unranked = d.coverage && d.coverage.tier2_unranked;
-    table($('#lol-rankings'), [{ t: '#', r: 1 }, { t: 'Team' }, { t: 'League' }, { t: 'Elo', r: 1 }, { t: '30 days', r: 1 }, { t: 'Games', r: 1 }], rk,
+    table($('#lol-rankings'), [{ t: '#', r: 1 }, { t: 'Team' }, { t: 'League' }, { t: 'Worlds seed' }, { t: 'Elo', r: 1 }, { t: '30 days', r: 1 }, { t: 'Games', r: 1 }], rk,
       unranked ? unranked + ' active teams from second-tier leagues (national and academy leagues) are not ranked: ' +
         'they almost never play the major regions, so their Elo is on a different scale.' : null);
     applyLoLFilters();
@@ -346,11 +348,12 @@
       card.appendChild(body);
       return card;
     }
-    [[m.team1, m.code1, m.elo1, m.p1, k && k.t1], [m.team2, m.code2, m.elo2, isNum(m.p1) ? 1 - m.p1 : null, k && k.t2]]
+    [[m.team1, m.code1, m.elo1, m.p1, k && k.t1, m.seed1], [m.team2, m.code2, m.elo2, isNum(m.p1) ? 1 - m.p1 : null, k && k.t2, m.seed2]]
       .forEach(function (x) {
         var q = x[4];
         body.appendChild(h('div', { class: 'side' },
-          h('div', { class: 'team-name', title: x[0] }, x[0], h('small', null, 'Elo ' + num(x[2]))),
+          h('div', { class: 'team-name', title: x[0] + (x[5] ? ' (' + x[5] + ' seed)' : '') }, x[0],
+            h('small', null, (x[5] ? x[5] + ' · ' : '') + 'Elo ' + num(x[2]))),
           h('div', { class: 'prob' }, probBar(x[3], q && q.mid), h('span', { class: 'val' }, prob(x[3]))),
           h('div', { class: 'mkt' }, q ? ['Kalshi ', cents(q.mid), h('span', { class: 'muted' }, ' · ask ' + cents(q.yes_ask)), edgeEl(x[3], q.yes_ask)]
                                        : h('span', { class: 'muted' }, 'no market'))));
