@@ -575,3 +575,7 @@ svg.chart .hair { stroke: var(--muted); stroke-width: 1; }
   .two-col, .charts { grid-template-columns: 1fr; }
   #tz-select { max-width: 100%; }
 }
+
+/* ---------- schedule slots whose teams are not known yet ---------- */
+.match.tbd { opacity: 0.72; }
+.tbd-line { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; padding: 6px 0 2px; font-size: 14px; }

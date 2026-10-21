@@ -87,6 +87,31 @@ ELO_INTL_K_MULT = 3.0
 # into cache/oe/ by hand and everything else keeps working.
 OE_DRIVE_FOLDER = "1gLSw0RLjBbtaNy0dgnGQDAZOHIgCe-HH"
 OE_YEARS = [2024, 2025, 2026]
+# OE spells some teams differently from lolesports. normalized OE name ->
+# normalized lolesports name; used only to join OE stats (Elo is unaffected).
+# The run log lists lolesports names still missing from OE.
+OE_TEAM_NAMES = {
+    "gen g": "gen g esports",
+    "jd gaming": "beijing jdg esports",
+    "weibo gaming": "weibogaming",
+    "team we": "xi an team we",
+    "ninjas in pyjamas": "shenzhen ninjas in pyjamas",
+    "nongshim redforce": "nongshim red force",
+    "kt rolster challengers": "kt challengers",
+    "dn soopers challengers": "dns challengers",
+    "kiwoom drx challengers": "krx challengers",
+    "dplus kia challengers": "dk challengers",
+    "hanwha life esports challengers": "hle challengers",
+    "hanjin brion challengers": "bro challengers",
+    "team liquid": "team liquid alienware",
+    "cloud9": "cloud9 kia",
+    "lng esports": "suzhou lng esports",
+    "red canids": "red kalunga",
+    "thundertalk gaming": "thunder talk gaming",
+    "deep cross gaming": "relove deep cross gaming",
+    "ici japon corp esport": "ici japon corp",
+    "team heretics academy": "heretics academy",
+}
 # F1LOL_OE_DOWNLOAD=0 turns the Drive download off (the GitHub Action does
 # this: Drive's per-file quota makes hourly downloads unreliable). Files
 # already in cache/oe/ are still used.

@@ -213,6 +213,14 @@
       m.block ? h('span', { class: 'badge' }, m.block) : null,
       h('span', { class: 'badge' }, 'Bo' + m.best_of),
       k ? h('span', { class: 'badge', title: k.event }, 'Kalshi') : null));
+    if (m.tbd) {
+      // Teams not decided yet: a schedule slot, no forecast until lolesports fills it in.
+      card.className += ' tbd';
+      body.appendChild(h('div', { class: 'tbd-line' }, h('span', { class: 'team-name' }, m.team1 + ' vs ' + m.team2),
+        h('span', { class: 'muted' }, 'Teams set by earlier results · forecast once known')));
+      card.appendChild(body);
+      return card;
+    }
     [[m.team1, m.code1, m.elo1, m.p1, k && k.t1], [m.team2, m.code2, m.elo2, isNum(m.p1) ? 1 - m.p1 : null, k && k.t2]]
       .forEach(function (x) {
         var q = x[4];

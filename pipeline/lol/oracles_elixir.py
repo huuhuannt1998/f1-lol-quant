@@ -112,7 +112,7 @@ def load_team_games() -> pd.DataFrame:
     out = pd.concat(frames, ignore_index=True)
     out["date"] = pd.to_datetime(out["date"], utc=True, errors="coerce")
     out = out.dropna(subset=["date", "teamname"]).drop_duplicates(["gameid", "teamname"])
-    out["team"] = out["teamname"].map(team_key)
+    out["team"] = out["teamname"].map(team_key).replace(config.OE_TEAM_NAMES)
     return out.sort_values("date").reset_index(drop=True)
 
 

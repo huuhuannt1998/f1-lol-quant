@@ -9,7 +9,7 @@ from ..util import has_lightgbm, iso, name_similarity, nonfinite_counts, utcnow
 from . import lolesports, oracles_elixir as oe
 from .elo import team_key
 from .model import (BASE_FEATURES, MatchModel, add_oe_diffs, evaluate,
-                    historical_features, tune_elo, upcoming_features, walk_forward)
+                    historical_features, tbd_matches, tune_elo, upcoming_features, walk_forward)
 
 
 def _f(x, nd=4):
@@ -177,6 +177,20 @@ def run(fetch: bool = True, use_oe: bool = True) -> dict:
                                   "ask": q.get("yes_ask"), "mid": q.get("mid"),
                                   "volume": q.get("volume")})
     n_logged = ledger.log_predictions(pred_rows)
+
+    # Slots whose teams are not decided yet (later Worlds Swiss rounds,
+    # bracket matches): listed on the page, never forecast or logged.
+    tbd = tbd_matches(matches)
+    for r in tbd.itertuples(index=False):
+        upcoming.append({"id": r.match_id, "start": r.start_time, "state": r.state,
+                         "league": r.league_name, "intl": r.league in lolesports.INTERNATIONAL,
+                         "block": r.block, "best_of": int(r.best_of), "tbd": True,
+                         "team1": r.team1 if isinstance(r.team1, str) and r.team1 else "TBD",
+                         "team2": r.team2 if isinstance(r.team2, str) and r.team2 else "TBD",
+                         "code1": None, "code2": None, "elo1": None, "elo2": None,
+                         "p1": None, "p1_elo": None, "kalshi": None})
+    upcoming.sort(key=lambda m: str(m["start"]))
+    print(f"  scheduled with teams still TBD (shown, not forecast): {len(tbd)}")
 
     # ---- outcomes of finished matches feed the ledger
     recent_done = settled_all[pd.to_datetime(settled_all["start_time"], utc=True) > now - pd.Timedelta(days=45)]

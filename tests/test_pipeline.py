@@ -287,10 +287,13 @@ def test_upcoming_skips_stale_rows():
     from pipeline.lol.model import historical_features, upcoming_features
     _, book, ft = historical_features(_toy_matches())
     soon = iso((pd.Timestamp.now(tz="UTC") + pd.Timedelta(days=1)).to_pydatetime())
+    from pipeline.lol.model import tbd_matches
     m = lolesports.typed(pd.DataFrame([_lol_row(1, soon, "unstarted", team1="Team A", team2="Team B"),
-                                       _lol_row(2, soon, "stale", team1="Team C", team2="Team D")]))
+                                       _lol_row(2, soon, "stale", team1="Team C", team2="Team D"),
+                                       _lol_row(3, soon, "unstarted", team1="TBD", team2="TBD")]))
     m["best_of"] = m["best_of"].astype(int)
     assert list(upcoming_features(m, book, ft)["match_id"]) == ["1"]
+    assert list(tbd_matches(m)["match_id"]) == ["3"]      # shown as a slot, never forecast
 
 
 def test_cross_league_events_do_not_change_a_teams_league():
@@ -325,6 +328,12 @@ def test_oe_skips_bad_files_and_backs_off_after_quota(tmp_path, monkeypatch):
     (tmp_path / "oe").mkdir()
     (tmp_path / "oe" / "2026_LoL_esports_match_data_from_OraclesElixir.csv").write_text("<html>quota</html>\n")
     assert oe.load_team_games().empty                   # an HTML error page must not crash the LoL run
+
+    good = tmp_path / "oe" / "2025_LoL_esports_match_data_from_OraclesElixir.csv"
+    good.write_text("gameid,league,date,position,teamname,result\n"
+                    "g1,LCK,2025-06-01 10:00:00,team,Gen.G,1\ng1,LCK,2025-06-01 10:00:00,team,T1,0\n")
+    assert sorted(oe.load_team_games()["team"]) == ["gen g esports", "t1"]   # OE's "Gen.G" joins lolesports' name
+    good.unlink()
 
     # A fake gdown: the folder lists fine, every file download hits Drive's quota.
     calls = []

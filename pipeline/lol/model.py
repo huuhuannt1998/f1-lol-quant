@@ -82,14 +82,29 @@ def historical_features(matches: pd.DataFrame, k: float = config.ELO_K,
     return feats, book, ft
 
 
-def upcoming_features(matches: pd.DataFrame, book: EloBook, ft: FormTracker,
-                      horizon_days: int = 14) -> pd.DataFrame:
+def _upcoming_window(matches: pd.DataFrame, horizon_days: int) -> pd.Series:
     now = pd.Timestamp.now(tz="UTC")
     t = pd.to_datetime(matches["start_time"], utc=True)
-    up = matches[~matches["state"].isin(["completed", "stale"])
-                 & (t <= now + pd.Timedelta(days=horizon_days))
-                 & (t >= now - pd.Timedelta(hours=12))].copy()
-    up = up[~up["team1"].str.upper().isin(["TBD", "TBA"]) & ~up["team2"].str.upper().isin(["TBD", "TBA"])]
+    return (~matches["state"].isin(["completed", "stale"])
+            & (t <= now + pd.Timedelta(days=horizon_days)) & (t >= now - pd.Timedelta(hours=12)))
+
+
+def _has_tbd(matches: pd.DataFrame) -> pd.Series:
+    """A side not decided yet (Worlds Swiss pairings, bracket slots)."""
+    def tbd(col):
+        return matches[col].fillna("TBD").astype(str).str.upper().isin(["TBD", "TBA", ""])
+    return tbd("team1") | tbd("team2")
+
+
+def tbd_matches(matches: pd.DataFrame, horizon_days: int = 14) -> pd.DataFrame:
+    """Scheduled matches whose teams are not known yet. Shown on the page as
+    slots; forecast (and logged) only once lolesports fills in both teams."""
+    return matches[_upcoming_window(matches, horizon_days) & _has_tbd(matches)]
+
+
+def upcoming_features(matches: pd.DataFrame, book: EloBook, ft: FormTracker,
+                      horizon_days: int = 14) -> pd.DataFrame:
+    up = matches[_upcoming_window(matches, horizon_days) & ~_has_tbd(matches)].copy()
     rows = []
     for r in up.itertuples(index=False):
         when = pd.Timestamp(r.start_time)
