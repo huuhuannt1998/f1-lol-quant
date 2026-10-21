@@ -159,19 +159,18 @@
       if (e != null && (!best || e > best.e)) best = { name: s.name, p: s.p, ask: s.ask, e: e };
     });
     if (!best) return null;
-    var warn = best.e >= edgeMin() && caution ? caution(best) : null;
-    if (warn) {
-      return h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, 'Bet check'),
-        h('span', null, 'Model sees ' + best.name + ' as cheap at ' + cents(best.ask) + ' (model ' + prob(best.p) + '), but be careful: ' + warn));
-    }
-    var line = best.e >= edgeMin()
-      ? h('span', { class: 'pick-value' }, 'Good price: buy ' + best.name + ' at ' + cents(best.ask) +
-          '. The model gives ' + prob(best.p) + ', so you gain about ' + Math.round(best.e * 100) + '¢ per $1 after fees.')
+    var good = best.e >= edgeMin();
+    var note = good && caution ? caution(best) : null;
+    var line = good
+      ? h('span', { class: 'pick-value' }, 'Good price: buy ' + best.name + ' at ' + cents(best.ask) + '. If ' + best.name +
+          ' wins you get $1 (+' + cents(1 - best.ask) + '); if not you lose ' + cents(best.ask) + '. The model gives ' +
+          prob(best.p) + ', so on average you gain about ' + Math.round(best.e * 100) + '¢ per bet after fees.')
       : h('span', null, 'Skip. ' + (best.e > 0
           ? 'Best price is ' + best.name + ' at ' + cents(best.ask) + ' vs a model chance of ' + prob(best.p) +
             ': only ' + Math.round(best.e * 100) + '¢ after fees, under the ' + cents(edgeMin()) + ' bar.'
           : 'Kalshi already prices every side at or above the model\'s chance.'));
-    return h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, 'Bet check'), line);
+    return h('div', { class: 'pick-row' }, h('span', { class: 'pick-label' }, 'Bet check'), line,
+      note ? h('span', { class: 'muted' }, note) : null);
   }
 
   function lolPick(m, k) {
@@ -187,15 +186,24 @@
     return h('div', { class: 'pick' }, rows);
   }
 
-  // The backtest's calibration slope on international matches: above 1 the
-  // model is too timid there (favourites win more often than it says), so
-  // the underdogs it calls cheap are often not bargains. Shown only then.
+  // Underdog bet at an international event: show how the model's underdog
+  // chances have held up on past international matches (backtest bins,
+  // both sides of each match pooled), so the risk is visible, not hidden.
   function intlCaution(best) {
+    if (best.p >= 0.5) return null;
     var d = state.data.lol || {}, b = d.backtest && d.backtest.metrics, c = d.model && d.model.chosen;
-    var slope = b && c && b[c] && b[c].international && b[c].international.calibration_slope;
-    if (!isNum(slope) || slope < 1.1 || best.p >= 0.5) return null;
-    return 'on international matches the model has been too timid (favourites won more often than it said), ' +
-      'so it rates underdogs like this one too high. Treat this as "no clear bet".';
+    var bins = (b && c && b[c] && b[c].calibration_intl) || [];
+    var n = 0, said = 0, won = 0;
+    bins.forEach(function (x) {
+      var under = x.mean_p < 0.5;
+      if (Math.abs(x.mean_p - 0.5) < 0.1) return;          // near 50/50: not an underdog
+      n += x.n;
+      said += x.n * (under ? x.mean_p : 1 - x.mean_p);
+      won += x.n * (under ? x.hit_rate : 1 - x.hit_rate);
+    });
+    if (!n) return null;
+    return 'Underdog bet: on ' + n + ' past international underdogs the model said ' + pct(said / n) + ' on average and they won ' +
+      pct(won / n) + '. That is too few matches to be sure, so keep the stake small.';
   }
 
   function f1Pick(n) {
