@@ -319,3 +319,10 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-23T18:20:58Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,George Russell,russell,0.1222,clogit-v0.1,KXF1RACE-UNIS26-RUS,0.04,0.06,0.05,17475.13
 2026-10-23T18:20:58Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.08,0.12,0.1,29467.27
 2026-10-23T18:20:58Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Oscar Piastri,piastri,0.0351,clogit-v0.1,KXF1RACE-UNIS26-PIA,0.01,0.02,0.015,14833.42
+2026-10-23T22:09:20Z,lol,115660540726095017,Team Secret Whales vs LYON (Worlds),2026-10-24T00:00:00Z,pre_match,Team Secret Whales,team secret whales,0.3304,gbm-v0.1,KXLOLGAME-26OCT231900LYTSW-TSW,0.41,0.42,0.415,18563.09
+2026-10-23T22:09:20Z,lol,115660540726095017,Team Secret Whales vs LYON (Worlds),2026-10-24T00:00:00Z,pre_match,LYON,lyon,0.6696,gbm-v0.1,KXLOLGAME-26OCT231900LYTSW-LY,0.58,0.59,0.585,96250.08
+2026-10-23T22:09:37Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.254,clogit-v0.1,KXF1RACE-UNIS26-VER,0.48,0.5,0.49,47336.25
+2026-10-23T22:09:37Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,KXF1RACE-UNIS26-ANT,0.24,0.25,0.245,38224.95
+2026-10-23T22:09:37Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1301,clogit-v0.1,KXF1RACE-UNIS26-LEC,0.11,0.15,0.13,31218.64
+2026-10-23T22:09:37Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,George Russell,russell,0.1222,clogit-v0.1,KXF1RACE-UNIS26-RUS,0.04,0.05,0.045,30970.83
+2026-10-23T22:09:37Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.07,0.1,0.085,32702.7
