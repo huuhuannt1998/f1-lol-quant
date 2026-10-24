@@ -397,3 +397,15 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-24T18:09:08Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.05,0.09,0.07,50944.22
 2026-10-24T18:09:08Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,KXF1RACE-UNIS26-HAM,0.07,0.08,0.07500000000000001,44958.45
 2026-10-24T18:09:08Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Pierre Gasly,gasly,0.0022,clogit-v0.1,KXF1RACE-UNIS26-GAS,0.0,0.01,0.01,467.59
+2026-10-24T20:47:40Z,lol,115660540726095033,Team Secret Whales vs Invictus Gaming (Worlds),2026-10-24T21:00:00Z,pre_match,Team Secret Whales,team secret whales,0.5751,gbm-v0.1,KXLOLGAME-26OCT241800TSWIG-TSW,0.31,0.32,0.315,19471.43
+2026-10-24T20:47:40Z,lol,115660540726095033,Team Secret Whales vs Invictus Gaming (Worlds),2026-10-24T21:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.4249,gbm-v0.1,KXLOLGAME-26OCT241800TSWIG-IG,0.68,0.69,0.685,68524.86
+2026-10-24T20:47:40Z,lol,115660540726095025,Gen.G Esports vs Hanwha Life Esports (Worlds),2026-10-24T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.5605,gbm-v0.1,KXLOLGAME-26OCT241500GENHLE-GEN,0.57,0.58,0.575,32779.57
+2026-10-24T20:47:40Z,lol,115660540726095025,Gen.G Esports vs Hanwha Life Esports (Worlds),2026-10-24T22:00:00Z,pre_match,Hanwha Life Esports,hanwha life esports,0.4395,gbm-v0.1,KXLOLGAME-26OCT241500GENHLE-HLE,0.41,0.42,0.415,14841.28
+2026-10-24T20:47:40Z,lol,115660540726095035,Team Liquid Alienware vs BILIBILI GAMING (Worlds),2026-10-25T00:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.5005,gbm-v0.1,KXLOLGAME-26OCT242000BLGTL-TL,0.24,0.25,0.245,31541.06
+2026-10-24T20:47:40Z,lol,115660540726095035,Team Liquid Alienware vs BILIBILI GAMING (Worlds),2026-10-25T00:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.4995,gbm-v0.1,KXLOLGAME-26OCT242000BLGTL-BLG,0.75,0.76,0.755,18775.27
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.254,clogit-v0.1,KXF1RACE-UNIS26-VER,0.44,0.46,0.45,67605.83
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,KXF1RACE-UNIS26-ANT,0.17,0.18,0.175,77909.2
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1301,clogit-v0.1,KXF1RACE-UNIS26-LEC,0.17,0.19,0.18,61490.64
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,George Russell,russell,0.1222,clogit-v0.1,KXF1RACE-UNIS26-RUS,0.03,0.04,0.035,47585.76
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.02,0.04,0.03,53160.08
+2026-10-24T20:48:00Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,KXF1RACE-UNIS26-HAM,0.15,0.16,0.155,53202.31
