@@ -501,3 +501,9 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Alexander Albon,albon,0.0016,baseline-v0.1,KXF1RACE-UNIS26-ALB,0.0,0.01,0.01,2665.07
 2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Sergio Pérez,perez,0.0015,baseline-v0.1,KXF1RACE-UNIS26-PER,0.0,0.01,0.01,1674.27
 2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Valtteri Bottas,bottas,0.0013,baseline-v0.1,KXF1RACE-UNIS26-BOT,0.0,0.01,0.01,1211.45
+2026-10-25T21:46:59Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,CTBC Flying Oyster,ctbc flying oyster,0.2163,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-CFO,0.11,0.12,0.11499999999999999,8951.93
+2026-10-25T21:46:59Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,T1,t1,0.7837,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-T1,0.87,0.88,0.875,8234.33
+2026-10-25T21:46:59Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,LOS,los,0.3752,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-LOS,0.34,0.35,0.345,13442.68
+2026-10-25T21:46:59Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,Team Secret Whales,team secret whales,0.6248,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-TSW,0.64,0.65,0.645,17360.45
+2026-10-25T21:46:59Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.6557,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-TL,0.29,0.3,0.295,16058.29
+2026-10-25T21:46:59Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Anyone's Legend,anyone s legend,0.3443,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-AL,0.69,0.7,0.695,3911.63
