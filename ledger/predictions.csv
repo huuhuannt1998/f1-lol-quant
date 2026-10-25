@@ -420,3 +420,5 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-24T23:12:32Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.0018,clogit-v0.1,KXF1RACE-UNIS26-LIN,0.0,0.01,0.01,100.0
 2026-10-24T23:12:32Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,KXF1RACE-UNIS26-STR,0.0,0.01,0.01,2337.97
 2026-10-24T23:12:32Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Fernando Alonso,alonso,0.0004,clogit-v0.1,KXF1RACE-UNIS26-ALO,0.0,0.01,0.01,100.0
+2026-10-25T01:10:41Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,KXF1RACE-UNIS26-ANT,0.43,0.44,0.435,124942.35
+2026-10-25T01:10:41Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,KXF1RACE-UNIS26-HAM,0.04,0.05,0.045,90578.26
