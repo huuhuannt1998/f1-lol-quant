@@ -471,3 +471,33 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-25T16:16:03Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2475,clogit-v0.1,KXF1RACE-UNIS26-ANT,0.4,0.41,0.405,186970.9
 2026-10-25T16:16:03Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lando Norris,norris,0.0861,clogit-v0.1,KXF1RACE-UNIS26-NOR,0.01,0.02,0.015,82218.74
 2026-10-25T16:16:03Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0839,clogit-v0.1,KXF1RACE-UNIS26-HAM,0.04,0.05,0.045,128748.14
+2026-10-25T19:05:09Z,lol,115660540726095041,Gen.G Esports vs LYON (Worlds),2026-10-25T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.705,gbm-v0.1,KXLOLGAME-26OCT251500LYGEN-GEN,0.9,0.91,0.905,25052.59
+2026-10-25T19:05:09Z,lol,115660540726095041,Gen.G Esports vs LYON (Worlds),2026-10-25T22:00:00Z,pre_match,LYON,lyon,0.295,gbm-v0.1,KXLOLGAME-26OCT251500LYGEN-LY,0.09,0.1,0.095,111597.72
+2026-10-25T19:05:09Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,CTBC Flying Oyster,ctbc flying oyster,0.2259,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-CFO,0.12,0.13,0.125,6215.69
+2026-10-25T19:05:09Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,T1,t1,0.7741,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-T1,0.87,0.88,0.875,6982.37
+2026-10-25T19:05:09Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,LOS,los,0.3934,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-LOS,0.35,0.36,0.355,13238.93
+2026-10-25T19:05:09Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,Team Secret Whales,team secret whales,0.6066,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-TSW,0.64,0.65,0.645,16877.88
+2026-10-25T19:05:09Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.6653,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-TL,0.31,0.32,0.315,15496.8
+2026-10-25T19:05:09Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Anyone's Legend,anyone s legend,0.3347,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-AL,0.68,0.69,0.685,3013.28
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Andrea Kimi Antonelli,antonelli,0.6206,baseline-v0.1,KXF1RACE-UNIS26-ANT,0.37,0.38,0.375,239445.45
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Max Verstappen,max_verstappen,0.1567,baseline-v0.1,KXF1RACE-UNIS26-VER,0.48,0.49,0.485,186765.57
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Isack Hadjar,hadjar,0.07,baseline-v0.1,KXF1RACE-UNIS26-HAD,0.01,0.03,0.02,117685.29
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Charles Leclerc,leclerc,0.0396,baseline-v0.1,KXF1RACE-UNIS26-LEC,0.06,0.07,0.065,185744.73
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Lewis Hamilton,hamilton,0.0254,baseline-v0.1,KXF1RACE-UNIS26-HAM,0.04,0.05,0.045,168088.22
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,George Russell,russell,0.0177,baseline-v0.1,KXF1RACE-UNIS26-RUS,0.01,0.02,0.015,111656.03
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Oscar Piastri,piastri,0.013,baseline-v0.1,KXF1RACE-UNIS26-PIA,0.0,0.01,0.01,30339.47
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Lando Norris,norris,0.01,baseline-v0.1,KXF1RACE-UNIS26-NOR,0.01,0.02,0.015,107615.1
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Arvid Lindblad,arvid_lindblad,0.0079,baseline-v0.1,KXF1RACE-UNIS26-LIN,0.0,0.01,0.01,100.0
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Liam Lawson,lawson,0.0064,baseline-v0.1,KXF1RACE-UNIS26-LAW,0.0,0.01,0.01,935.16
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Pierre Gasly,gasly,0.0053,baseline-v0.1,KXF1RACE-UNIS26-GAS,0.0,0.01,0.01,912.59
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Nico Hülkenberg,hulkenberg,0.0045,baseline-v0.1,KXF1RACE-UNIS26-HUL,0.0,0.01,0.01,6452.79
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Gabriel Bortoleto,bortoleto,0.0038,baseline-v0.1,KXF1RACE-UNIS26-BOR,0.0,0.01,0.0,0.0
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Franco Colapinto,colapinto,0.0033,baseline-v0.1,KXF1RACE-UNIS26-COL,0.0,0.01,0.0,0.0
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Fernando Alonso,alonso,0.0029,baseline-v0.1,KXF1RACE-UNIS26-ALO,0.0,0.01,0.01,1555.78
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Oliver Bearman,bearman,0.0025,baseline-v0.1,KXF1RACE-UNIS26-BEA,0.0,0.01,0.0,0.0
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Esteban Ocon,ocon,0.0022,baseline-v0.1,KXF1RACE-UNIS26-OCO,0.0,0.01,0.0,0.0
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Lance Stroll,stroll,0.002,baseline-v0.1,KXF1RACE-UNIS26-STR,0.0,0.01,0.01,2337.97
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Carlos Sainz,sainz,0.0018,baseline-v0.1,KXF1RACE-UNIS26-SAI,0.0,0.01,0.01,1122.22
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Alexander Albon,albon,0.0016,baseline-v0.1,KXF1RACE-UNIS26-ALB,0.0,0.01,0.01,2665.07
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Sergio Pérez,perez,0.0015,baseline-v0.1,KXF1RACE-UNIS26-PER,0.0,0.01,0.01,1674.27
+2026-10-25T19:05:30Z,f1,2026-18,2026 United States Grand Prix,2026-10-25T20:00:00Z,post_quali,Valtteri Bottas,bottas,0.0013,baseline-v0.1,KXF1RACE-UNIS26-BOT,0.0,0.01,0.01,1211.45
