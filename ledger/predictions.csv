@@ -507,3 +507,33 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-25T21:46:59Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,Team Secret Whales,team secret whales,0.6248,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-TSW,0.64,0.65,0.645,17360.45
 2026-10-25T21:46:59Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.6557,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-TL,0.29,0.3,0.295,16058.29
 2026-10-25T21:46:59Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Anyone's Legend,anyone s legend,0.3443,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-AL,0.69,0.7,0.695,3911.63
+2026-10-26T00:22:57Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,CTBC Flying Oyster,ctbc flying oyster,0.2253,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-CFO,0.11,0.12,0.11499999999999999,11723.5
+2026-10-26T00:22:57Z,lol,115660540726095049,CTBC Flying Oyster vs T1 (Worlds),2026-10-26T17:00:00Z,pre_match,T1,t1,0.7747,gbm-v0.1,KXLOLGAME-26OCT261400CFOT1-T1,0.88,0.89,0.885,30003.08
+2026-10-26T00:22:57Z,lol,115660540726095051,BILIBILI GAMING vs Karmine Corp (Worlds),2026-10-26T18:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.4365,gbm-v0.1,KXLOLGAME-26OCT261300BLGKC-BLG,0.7,0.71,0.705,15049.49
+2026-10-26T00:22:57Z,lol,115660540726095051,BILIBILI GAMING vs Karmine Corp (Worlds),2026-10-26T18:00:00Z,pre_match,Karmine Corp,karmine corp,0.5635,gbm-v0.1,KXLOLGAME-26OCT261300BLGKC-KC,0.29,0.3,0.295,22485.98
+2026-10-26T00:22:57Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,LOS,los,0.3876,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-LOS,0.34,0.35,0.345,16583.8
+2026-10-26T00:22:57Z,lol,115660540726095053,LOS vs Team Secret Whales (Worlds),2026-10-26T19:00:00Z,pre_match,Team Secret Whales,team secret whales,0.6124,gbm-v0.1,KXLOLGAME-26OCT261500TSWLOS-TSW,0.64,0.65,0.645,18837.36
+2026-10-26T00:22:57Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.5995,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-TL,0.29,0.3,0.295,17070.05
+2026-10-26T00:22:57Z,lol,115660540726095057,Team Liquid Alienware vs Anyone's Legend (Worlds),2026-10-26T22:00:00Z,pre_match,Anyone's Legend,anyone s legend,0.4005,gbm-v0.1,KXLOLGAME-26OCT261800ALTL-AL,0.7,0.71,0.705,10007.14
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1391,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0748,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lando Norris,norris,0.0707,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Isack Hadjar,hadjar,0.031,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Oscar Piastri,piastri,0.0292,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Liam Lawson,lawson,0.0033,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Pierre Gasly,gasly,0.0018,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.0017,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Nico Hülkenberg,hulkenberg,0.0011,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Gabriel Bortoleto,bortoleto,0.0009,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Franco Colapinto,colapinto,0.0008,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Oliver Bearman,bearman,0.0006,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Fernando Alonso,alonso,0.0004,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Carlos Sainz,sainz,0.0004,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Alexander Albon,albon,0.0003,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Esteban Ocon,ocon,0.0002,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0001,clogit-v0.1,,,,,
+2026-10-26T00:23:23Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,,,,,
