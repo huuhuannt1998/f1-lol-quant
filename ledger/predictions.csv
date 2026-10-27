@@ -632,3 +632,17 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-27T16:37:41Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,Hanwha Life Esports,hanwha life esports,0.6016,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-HLE,0.77,0.78,0.775,9382.33
 2026-10-27T16:38:03Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.38,0.39,0.385,14458.75
 2026-10-27T16:38:03Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lando Norris,norris,0.0707,clogit-v0.1,KXF1RACE-MEX26-NOR,0.03,0.04,0.035,3558.84
+2026-10-27T21:18:37Z,lol,115660540726095061,Movistar KOI vs T1 (Worlds),2026-10-28T20:00:00Z,pre_match,Movistar KOI,movistar koi,0.335,gbm-v0.1,,,,,
+2026-10-27T21:18:37Z,lol,115660540726095061,Movistar KOI vs T1 (Worlds),2026-10-28T20:00:00Z,pre_match,T1,t1,0.665,gbm-v0.1,,,,,
+2026-10-27T21:18:37Z,lol,115660540726095065,LYON vs Invictus Gaming (Worlds),2026-10-28T23:00:00Z,pre_match,LYON,lyon,0.7014,gbm-v0.1,KXLOLGAME-26OCT281900LYIG-LY,0.35,0.36,0.355,60436.05
+2026-10-27T21:18:37Z,lol,115660540726095065,LYON vs Invictus Gaming (Worlds),2026-10-28T23:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.2986,gbm-v0.1,KXLOLGAME-26OCT281900LYIG-IG,0.64,0.65,0.645,26133.9
+2026-10-27T21:18:37Z,lol,115660540726095073,CTBC Flying Oyster vs Karmine Corp (Worlds),2026-10-29T20:00:00Z,pre_match,CTBC Flying Oyster,ctbc flying oyster,0.146,gbm-v0.1,KXLOLGAME-26OCT291900CFOKC-CFO,0.2,0.21,0.20500000000000002,14367.29
+2026-10-27T21:18:37Z,lol,115660540726095073,CTBC Flying Oyster vs Karmine Corp (Worlds),2026-10-29T20:00:00Z,pre_match,Karmine Corp,karmine corp,0.854,gbm-v0.1,KXLOLGAME-26OCT291900CFOKC-KC,0.79,0.8,0.795,1781.96
+2026-10-27T21:18:37Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.7546,gbm-v0.1,,,,,
+2026-10-27T21:18:37Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,TOP ESPORTS,top esports,0.2454,gbm-v0.1,,,,,
+2026-10-27T21:18:37Z,lol,115660540726095077,Team Liquid Alienware vs LOS (Worlds),2026-10-30T20:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.7087,gbm-v0.1,KXLOLGAME-26OCT301600LOSTL-TL,0.79,0.8,0.795,2117.11
+2026-10-27T21:18:37Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,G2 Esports,g2 esports,0.3779,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-G2,0.2,0.21,0.20500000000000002,9583.25
+2026-10-27T21:18:37Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,Hanwha Life Esports,hanwha life esports,0.6221,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-HLE,0.79,0.8,0.795,15033.45
+2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.37,0.39,0.38,15683.82
+2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.35,0.36,0.355,4614.64
+2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.04,0.05,0.045,3519.61
