@@ -668,3 +668,9 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-28T16:01:19Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.04,0.05,0.045,5071.33
 2026-10-28T16:01:19Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0748,clogit-v0.1,KXF1RACE-MEX26-HAM,0.06,0.07,0.065,3765.79
 2026-10-28T16:01:19Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,KXF1RACE-MEX26-PER,0.0,0.01,0.01,34.0
+2026-10-28T21:02:42Z,lol,115660540726095065,LYON vs Invictus Gaming (Worlds),2026-10-28T23:00:00Z,pre_match,LYON,lyon,0.7002,gbm-v0.1,KXLOLGAME-26OCT281900LYIG-LY,0.33,0.34,0.335,280303.86
+2026-10-28T21:02:42Z,lol,115660540726095065,LYON vs Invictus Gaming (Worlds),2026-10-28T23:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.2998,gbm-v0.1,KXLOLGAME-26OCT281900LYIG-IG,0.66,0.67,0.665,200165.76
+2026-10-28T21:02:42Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.7663,gbm-v0.1,,,,,
+2026-10-28T21:02:42Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,TOP ESPORTS,top esports,0.2337,gbm-v0.1,,,,,
+2026-10-28T21:03:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.34,0.35,0.345,8369.72
+2026-10-28T21:03:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.05,0.06,0.055,10179.32
