@@ -646,3 +646,7 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.37,0.39,0.38,15683.82
 2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.35,0.36,0.355,4614.64
 2026-10-27T21:19:01Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.04,0.05,0.045,3519.61
+2026-10-28T01:20:19Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.7668,gbm-v0.1,,,,,
+2026-10-28T01:20:19Z,lol,115660540726095069,BILIBILI GAMING vs TOP ESPORTS (Worlds),2026-10-29T23:00:00Z,pre_match,TOP ESPORTS,top esports,0.2332,gbm-v0.1,,,,,
+2026-10-28T01:20:44Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.37,0.38,0.375,17266.98
+2026-10-28T01:20:44Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.37,0.38,0.375,5042.23
