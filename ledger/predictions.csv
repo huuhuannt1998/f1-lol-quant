@@ -724,3 +724,12 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-30T12:52:44Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,Hanwha Life Esports,hanwha life esports,0.6113,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-HLE,0.78,0.79,0.785,58218.06
 2026-10-30T12:53:04Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.38,0.39,0.385,54262.59
 2026-10-30T12:53:04Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.35,0.36,0.355,18719.64
+2026-10-30T18:36:27Z,lol,115660540726095077,Team Liquid Alienware vs LOS (Worlds),2026-10-30T20:00:00Z,pre_match,Team Liquid Alienware,team liquid alienware,0.708,gbm-v0.1,KXLOLGAME-26OCT301600LOSTL-TL,0.8,0.81,0.805,147459.95
+2026-10-30T18:36:27Z,lol,115660540726095077,Team Liquid Alienware vs LOS (Worlds),2026-10-30T20:00:00Z,pre_match,LOS,los,0.292,gbm-v0.1,KXLOLGAME-26OCT301600LOSTL-LOS,0.19,0.2,0.195,50561.11
+2026-10-30T18:36:27Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,G2 Esports,g2 esports,0.3776,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-G2,0.21,0.22,0.215,61346.67
+2026-10-30T18:36:27Z,lol,115660540726095081,G2 Esports vs Hanwha Life Esports (Worlds),2026-10-30T23:00:00Z,pre_match,Hanwha Life Esports,hanwha life esports,0.6224,gbm-v0.1,KXLOLGAME-26OCT301900G2HLE-HLE,0.78,0.79,0.785,65890.48
+2026-10-30T18:47:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.39,0.4,0.395,62524.91
+2026-10-30T18:47:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.36,0.37,0.365,21186.33
+2026-10-30T18:47:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.05,0.07,0.060000000000000005,20464.5
+2026-10-30T18:47:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lando Norris,norris,0.0707,clogit-v0.1,KXF1RACE-MEX26-NOR,0.04,0.05,0.045,20661.63
+2026-10-30T18:47:02Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Fernando Alonso,alonso,0.0004,clogit-v0.1,KXF1RACE-MEX26-ALO,0.0,0.01,0.01,93.51
