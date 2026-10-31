@@ -772,3 +772,9 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-10-31T15:44:40Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.06,0.07,0.065,34349.63
 2026-10-31T15:44:40Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0748,clogit-v0.1,KXF1RACE-MEX26-HAM,0.06,0.07,0.065,30310.18
 2026-10-31T15:44:40Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lando Norris,norris,0.0707,clogit-v0.1,KXF1RACE-MEX26-NOR,0.05,0.06,0.055,35009.94
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.3043,clogit-v0.1,KXF1RACE-MEX26-ANT,0.38,0.4,0.39,118065.17
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2461,clogit-v0.1,KXF1RACE-MEX26-VER,0.11,0.12,0.11499999999999999,43600.01
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1391,clogit-v0.1,KXF1RACE-MEX26-LEC,0.22,0.24,0.22999999999999998,51793.18
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,George Russell,russell,0.0927,clogit-v0.1,KXF1RACE-MEX26-RUS,0.03,0.04,0.035,40601.47
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0748,clogit-v0.1,KXF1RACE-MEX26-HAM,0.06,0.09,0.075,38958.22
+2026-10-31T20:00:08Z,f1,2026-19,2026 Mexico City Grand Prix,2026-11-01T20:00:00Z,pre_quali,Lando Norris,norris,0.0707,clogit-v0.1,KXF1RACE-MEX26-NOR,0.13,0.14,0.135,46293.97
