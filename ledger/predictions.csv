@@ -843,3 +843,32 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-01T22:48:12Z,lol,115660540726095097,Dplus KIA vs BILIBILI GAMING (Worlds),2026-11-05T22:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.4519,gbm-v0.1,KXLOLGAME-26NOV051700BLGDK-BLG,0.59,0.6,0.595,10534.3
 2026-11-01T22:48:12Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,T1,t1,0.4243,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-T1,0.82,0.83,0.825,3757.62
 2026-11-01T22:48:12Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,Karmine Corp,karmine corp,0.5757,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-KC,0.17,0.18,0.175,6545.7
+2026-11-02T02:30:19Z,lol,115660540726095109,TOP ESPORTS vs Invictus Gaming (Worlds),2026-11-03T22:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.4697,gbm-v0.1,KXLOLGAME-26NOV031700IGTES-IG,0.54,0.55,0.545,59718.55
+2026-11-02T02:30:19Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.7749,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-GEN,0.91,0.92,0.915,10685.61
+2026-11-02T02:30:19Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,LYON,lyon,0.2251,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-LY,0.08,0.09,0.08499999999999999,72036.97
+2026-11-02T02:30:19Z,lol,115660540726095097,Dplus KIA vs BILIBILI GAMING (Worlds),2026-11-05T22:00:00Z,pre_match,Dplus KIA,dplus kia,0.5413,gbm-v0.1,KXLOLGAME-26NOV051700BLGDK-DK,0.41,0.42,0.415,4605.33
+2026-11-02T02:30:19Z,lol,115660540726095097,Dplus KIA vs BILIBILI GAMING (Worlds),2026-11-05T22:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.4587,gbm-v0.1,KXLOLGAME-26NOV051700BLGDK-BLG,0.59,0.6,0.595,10664.65
+2026-11-02T02:30:19Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,T1,t1,0.4119,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-T1,0.82,0.83,0.825,4907.77
+2026-11-02T02:30:19Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,Karmine Corp,karmine corp,0.5881,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-KC,0.17,0.18,0.175,6739.94
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2809,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2445,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1572,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1047,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,George Russell,russell,0.0903,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lando Norris,norris,0.0673,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Isack Hadjar,hadjar,0.0223,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Oscar Piastri,piastri,0.0218,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Liam Lawson,lawson,0.0027,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Pierre Gasly,gasly,0.0017,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.0016,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Nico Hülkenberg,hulkenberg,0.001,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Franco Colapinto,colapinto,0.0009,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Gabriel Bortoleto,bortoleto,0.0009,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Oliver Bearman,bearman,0.0006,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Carlos Sainz,sainz,0.0003,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Fernando Alonso,alonso,0.0003,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Alexander Albon,albon,0.0003,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Ryo Hirakawa,ryo_hirakawa,0.0001,clogit-v0.1,,,,,
+2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,,,,,
