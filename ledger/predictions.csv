@@ -872,3 +872,7 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,,,,,
 2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Ryo Hirakawa,ryo_hirakawa,0.0001,clogit-v0.1,,,,,
 2026-11-02T02:30:45Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,,,,,
+2026-11-02T11:01:05Z,lol,115660540726095109,TOP ESPORTS vs Invictus Gaming (Worlds),2026-11-03T22:00:00Z,pre_match,TOP ESPORTS,top esports,0.5467,gbm-v0.1,KXLOLGAME-26NOV031700IGTES-TES,0.45,0.46,0.455,12572.82
+2026-11-02T11:01:05Z,lol,115660540726095109,TOP ESPORTS vs Invictus Gaming (Worlds),2026-11-03T22:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.4533,gbm-v0.1,KXLOLGAME-26NOV031700IGTES-IG,0.54,0.55,0.545,73263.93
+2026-11-02T11:01:05Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.7869,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-GEN,0.91,0.92,0.915,12823.64
+2026-11-02T11:01:05Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,LYON,lyon,0.2131,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-LY,0.08,0.09,0.08499999999999999,87516.15
