@@ -918,3 +918,11 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-03T10:50:56Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Ryo Hirakawa,ryo_hirakawa,0.0002,clogit-v0.1,KXF1RACE-BRAZ26-HIR,0.0,0.01,0.0,0.0
 2026-11-03T10:50:56Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,KXF1RACE-BRAZ26-BOT,0.0,0.01,0.0,0.0
 2026-11-03T10:50:56Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,KXF1RACE-BRAZ26-PER,0.0,0.01,0.0,0.0
+2026-11-03T18:26:41Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.784,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-GEN,0.91,0.92,0.915,16223.13
+2026-11-03T18:26:41Z,lol,115660540726095115,Gen.G Esports vs LYON (Worlds),2026-11-04T22:00:00Z,pre_match,LYON,lyon,0.216,gbm-v0.1,KXLOLGAME-26NOV041700LYGEN-LY,0.09,0.1,0.095,178360.63
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.285,clogit-v0.1,KXF1RACE-BRAZ26-VER,0.4,0.43,0.41500000000000004,3990.61
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2447,clogit-v0.1,KXF1RACE-BRAZ26-ANT,0.25,0.28,0.265,2229.81
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1573,clogit-v0.1,KXF1RACE-BRAZ26-LEC,0.06,0.07,0.065,305.25
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,George Russell,russell,0.0904,clogit-v0.1,KXF1RACE-BRAZ26-RUS,0.05,0.06,0.055,823.08
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lando Norris,norris,0.0647,clogit-v0.1,KXF1RACE-BRAZ26-NOR,0.04,0.05,0.045,867.3
+2026-11-03T18:27:08Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Oscar Piastri,piastri,0.0169,clogit-v0.1,KXF1RACE-BRAZ26-PIA,0.01,0.02,0.015,64.63
