@@ -961,3 +961,6 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-05T02:26:59Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.7622,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-GEN,0.8,0.81,0.805,347.69
 2026-11-05T02:26:59Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.2378,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-IG,0.18,0.21,0.195,1265.76
 2026-11-05T02:27:29Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2447,clogit-v0.1,KXF1RACE-BRAZ26-ANT,0.25,0.26,0.255,5208.71
+2026-11-05T10:52:24Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.7592,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-GEN,0.79,0.8,0.795,2260.97
+2026-11-05T10:52:47Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2447,clogit-v0.1,KXF1RACE-BRAZ26-ANT,0.24,0.25,0.245,6123.39
+2026-11-05T10:52:47Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1048,clogit-v0.1,KXF1RACE-BRAZ26-HAM,0.12,0.13,0.125,8300.32
