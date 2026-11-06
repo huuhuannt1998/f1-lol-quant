@@ -992,3 +992,14 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-06T15:01:26Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.25,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-IG,0.19,0.2,0.195,93808.29
 2026-11-06T15:01:52Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.285,clogit-v0.1,KXF1RACE-BRAZ26-VER,0.39,0.4,0.395,16806.89
 2026-11-06T15:01:52Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1048,clogit-v0.1,KXF1RACE-BRAZ26-HAM,0.12,0.13,0.125,13741.58
+2026-11-06T20:53:49Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,T1,t1,0.4517,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-T1,0.82,0.83,0.825,484348.96
+2026-11-06T20:53:49Z,lol,115660540726095103,T1 vs Karmine Corp (Worlds),2026-11-06T22:00:00Z,pre_match,Karmine Corp,karmine corp,0.5483,gbm-v0.1,KXLOLGAME-26NOV061700T1KC-KC,0.17,0.18,0.175,110142.9
+2026-11-06T20:53:49Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Gen.G Esports,gen g esports,0.7407,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-GEN,0.8,0.81,0.805,9415.38
+2026-11-06T20:53:49Z,lol,115660540726095127,Gen.G Esports vs Invictus Gaming (Worlds),2026-11-07T22:00:00Z,pre_match,Invictus Gaming,invictus gaming,0.2593,gbm-v0.1,KXLOLGAME-26NOV071700GENIG-IG,0.19,0.2,0.195,105648.81
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.285,clogit-v0.1,KXF1RACE-BRAZ26-VER,0.36,0.39,0.375,31427.66
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2447,clogit-v0.1,KXF1RACE-BRAZ26-ANT,0.35,0.38,0.365,19106.3
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1573,clogit-v0.1,KXF1RACE-BRAZ26-LEC,0.05,0.06,0.055,5427.98
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1048,clogit-v0.1,KXF1RACE-BRAZ26-HAM,0.08,0.09,0.08499999999999999,16884.61
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,George Russell,russell,0.0904,clogit-v0.1,KXF1RACE-BRAZ26-RUS,0.03,0.04,0.035,10223.28
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lando Norris,norris,0.0647,clogit-v0.1,KXF1RACE-BRAZ26-NOR,0.13,0.16,0.14500000000000002,18632.48
+2026-11-06T20:54:14Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Oscar Piastri,piastri,0.0169,clogit-v0.1,KXF1RACE-BRAZ26-PIA,0.0,0.03,0.02,5764.37
