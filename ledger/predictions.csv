@@ -1013,3 +1013,8 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-07T07:09:19Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1048,clogit-v0.1,KXF1RACE-BRAZ26-HAM,0.07,0.08,0.07500000000000001,27077.64
 2026-11-07T07:09:19Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lando Norris,norris,0.0647,clogit-v0.1,KXF1RACE-BRAZ26-NOR,0.14,0.15,0.14500000000000002,21469.49
 2026-11-07T07:09:19Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Oscar Piastri,piastri,0.0169,clogit-v0.1,KXF1RACE-BRAZ26-PIA,0.01,0.02,0.015,5983.53
+2026-11-07T14:00:42Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.285,clogit-v0.1,KXF1RACE-BRAZ26-VER,0.22,0.26,0.24,43380.09
+2026-11-07T14:00:42Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2447,clogit-v0.1,KXF1RACE-BRAZ26-ANT,0.39,0.42,0.405,33018.88
+2026-11-07T14:00:42Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1573,clogit-v0.1,KXF1RACE-BRAZ26-LEC,0.04,0.05,0.045,11549.19
+2026-11-07T14:00:42Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.1048,clogit-v0.1,KXF1RACE-BRAZ26-HAM,0.06,0.07,0.065,28639.53
+2026-11-07T14:00:42Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,pre_quali,Lando Norris,norris,0.0647,clogit-v0.1,KXF1RACE-BRAZ26-NOR,0.17,0.24,0.20500000000000002,27275.06
