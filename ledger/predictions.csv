@@ -1064,3 +1064,9 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-08T02:29:02Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Valtteri Bottas,bottas,0.0016,baseline-v0.1,KXF1RACE-BRAZ26-BOT,0.0,0.01,0.0,0.0
 2026-11-08T02:29:02Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Sergio Pérez,perez,0.0015,baseline-v0.1,KXF1RACE-BRAZ26-PER,0.0,0.01,0.01,935.18
 2026-11-08T02:29:02Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Gabriel Bortoleto,bortoleto,0.0014,baseline-v0.1,KXF1RACE-BRAZ26-BOR,0.0,0.01,0.01,190.51
+2026-11-08T10:18:19Z,lol,115660540726095121,T1 vs BILIBILI GAMING (Worlds),2026-11-08T22:00:00Z,pre_match,T1,t1,0.3129,gbm-v0.1,KXLOLGAME-26NOV081700T1BLG-T1,0.43,0.44,0.435,382728.09
+2026-11-08T10:18:19Z,lol,115660540726095121,T1 vs BILIBILI GAMING (Worlds),2026-11-08T22:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.6871,gbm-v0.1,KXLOLGAME-26NOV081700T1BLG-BLG,0.56,0.57,0.565,176333.15
+2026-11-08T10:18:44Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Andrea Kimi Antonelli,antonelli,0.0702,baseline-v0.1,KXF1RACE-BRAZ26-ANT,0.38,0.39,0.385,73559.41
+2026-11-08T10:18:44Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Charles Leclerc,leclerc,0.0397,baseline-v0.1,KXF1RACE-BRAZ26-LEC,0.02,0.03,0.025,41027.25
+2026-11-08T10:18:44Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Carlos Sainz,sainz,0.0029,baseline-v0.1,KXF1RACE-BRAZ26-SAI,0.0,0.01,0.01,93.51
+2026-11-08T10:18:44Z,f1,2026-20,2026 Brazilian Grand Prix,2026-11-08T17:00:00Z,post_quali,Max Verstappen,max_verstappen,0.0025,baseline-v0.1,KXF1RACE-BRAZ26-VER,0.13,0.14,0.135,186546.61
