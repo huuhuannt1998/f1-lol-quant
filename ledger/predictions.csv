@@ -1150,3 +1150,6 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-10T02:07:00Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,George Russell,russell,0.1076,clogit-v0.1,KXF1RACE-LASV26-RUS,0.12,0.13,0.125,4527.02
 2026-11-10T02:07:00Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Isack Hadjar,hadjar,0.0377,clogit-v0.1,KXF1RACE-LASV26-HAD,0.01,0.02,0.015,175.0
 2026-11-10T02:07:00Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Oscar Piastri,piastri,0.0199,clogit-v0.1,KXF1RACE-LASV26-PIA,0.02,0.03,0.025,350.51
+2026-11-10T09:48:13Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2468,clogit-v0.1,KXF1RACE-LASV26-ANT,0.27,0.29,0.28,4070.36
+2026-11-10T09:48:13Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,George Russell,russell,0.1076,clogit-v0.1,KXF1RACE-LASV26-RUS,0.11,0.12,0.11499999999999999,5438.53
+2026-11-10T09:48:13Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0666,clogit-v0.1,KXF1RACE-LASV26-HAM,0.03,0.04,0.035,2613.58
