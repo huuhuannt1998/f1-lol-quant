@@ -1197,3 +1197,4 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-14T17:05:46Z,lol,115660540726095133,Gen.G Esports vs BILIBILI GAMING (Worlds),2026-11-14T19:00:00Z,pre_match,BILIBILI GAMING,bilibili gaming,0.3504,gbm-v0.1,KXLOLGAME-26NOV141400GENBLG-BLG,0.37,0.38,0.375,801883.82
 2026-11-14T21:29:19Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2471,clogit-v0.1,KXF1RACE-LASV26-ANT,0.26,0.27,0.265,11786.81
 2026-11-14T21:29:19Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2441,clogit-v0.1,KXF1RACE-LASV26-VER,0.37,0.38,0.375,18926.33
+2026-11-15T21:48:14Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0667,clogit-v0.1,KXF1RACE-LASV26-HAM,0.05,0.06,0.055,33395.33
