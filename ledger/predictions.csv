@@ -1203,3 +1203,4 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-16T20:28:05Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2441,clogit-v0.1,KXF1RACE-LASV26-VER,0.36,0.37,0.365,25021.84
 2026-11-17T22:22:01Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2441,clogit-v0.1,KXF1RACE-LASV26-VER,0.38,0.39,0.385,29055.3
 2026-11-17T22:22:01Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0667,clogit-v0.1,KXF1RACE-LASV26-HAM,0.04,0.05,0.045,38845.58
+2026-11-18T04:18:45Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.2441,clogit-v0.1,KXF1RACE-LASV26-VER,0.37,0.38,0.375,30286.55
