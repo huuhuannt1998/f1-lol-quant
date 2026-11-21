@@ -1242,3 +1242,25 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-21T09:47:47Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Charles Leclerc,leclerc,0.1214,clogit-v0.1,KXF1RACE-LASV26-LEC,0.0,0.01,0.01,32849.8
 2026-11-21T09:47:47Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,George Russell,russell,0.1078,clogit-v0.1,KXF1RACE-LASV26-RUS,0.21,0.23,0.22,93585.17
 2026-11-21T09:47:47Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,pre_quali,Lewis Hamilton,hamilton,0.0667,clogit-v0.1,KXF1RACE-LASV26-HAM,0.0,0.01,0.01,86934.59
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Andrea Kimi Antonelli,antonelli,0.6207,baseline-v0.1,KXF1RACE-LASV26-ANT,0.15,0.16,0.155,120867.91
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Max Verstappen,max_verstappen,0.1567,baseline-v0.1,KXF1RACE-LASV26-VER,0.49,0.5,0.495,122350.73
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,George Russell,russell,0.07,baseline-v0.1,KXF1RACE-LASV26-RUS,0.23,0.25,0.24,99111.17
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Lando Norris,norris,0.0396,baseline-v0.1,KXF1RACE-LASV26-NOR,0.07,0.08,0.07500000000000001,72377.87
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Isack Hadjar,hadjar,0.0254,baseline-v0.1,KXF1RACE-LASV26-HAD,0.01,0.02,0.015,25300.92
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Arvid Lindblad,arvid_lindblad,0.0177,baseline-v0.1,KXF1RACE-LASV26-LIN,0.0,0.01,0.01,4083.57
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Oscar Piastri,piastri,0.013,baseline-v0.1,KXF1RACE-LASV26-PIA,0.0,0.01,0.01,24589.45
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Liam Lawson,lawson,0.01,baseline-v0.1,KXF1RACE-LASV26-LAW,0.0,0.01,0.01,5509.51
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Pierre Gasly,gasly,0.0079,baseline-v0.1,KXF1RACE-LASV26-GAS,0.0,0.01,0.01,3834.28
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Franco Colapinto,colapinto,0.0064,baseline-v0.1,KXF1RACE-LASV26-COL,0.0,0.01,0.01,63.76
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Charles Leclerc,leclerc,0.0053,baseline-v0.1,KXF1RACE-LASV26-LEC,0.0,0.01,0.01,38669.17
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Lewis Hamilton,hamilton,0.0045,baseline-v0.1,KXF1RACE-LASV26-HAM,0.0,0.02,0.02,93056.52
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Nico Hülkenberg,hulkenberg,0.0038,baseline-v0.1,KXF1RACE-LASV26-HUL,0.0,0.01,0.01,404.29
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Carlos Sainz,sainz,0.0033,baseline-v0.1,KXF1RACE-LASV26-SAI,0.0,0.01,0.01,1555.32
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Gabriel Bortoleto,bortoleto,0.0029,baseline-v0.1,KXF1RACE-LASV26-BOR,0.0,0.01,0.01,1237.41
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Alexander Albon,albon,0.0025,baseline-v0.1,KXF1RACE-LASV26-ALB,0.0,0.01,0.01,614.3
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Rafael Camara,rafael_camara,0.0022,baseline-v0.1,KXF1RACE-LASV26-CAM,0.0,0.01,0.01,140.26
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Sergio Pérez,perez,0.002,baseline-v0.1,KXF1RACE-LASV26-PER,0.0,0.01,0.01,16823.49
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Fernando Alonso,alonso,0.0018,baseline-v0.1,KXF1RACE-LASV26-ALO,0.0,0.01,0.01,693.66
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Lance Stroll,stroll,0.0016,baseline-v0.1,KXF1RACE-LASV26-STR,0.0,0.01,0.01,465.86
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Valtteri Bottas,bottas,0.0015,baseline-v0.1,KXF1RACE-LASV26-BOT,0.0,0.01,0.01,1044.63
+2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Oliver Bearman,bearman,0.0013,baseline-v0.1,KXF1RACE-LASV26-BEA,0.0,0.01,0.01,210.63
