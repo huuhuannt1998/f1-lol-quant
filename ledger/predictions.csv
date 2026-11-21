@@ -1264,3 +1264,5 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Lance Stroll,stroll,0.0016,baseline-v0.1,KXF1RACE-LASV26-STR,0.0,0.01,0.01,465.86
 2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Valtteri Bottas,bottas,0.0015,baseline-v0.1,KXF1RACE-LASV26-BOT,0.0,0.01,0.01,1044.63
 2026-11-21T17:30:12Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Oliver Bearman,bearman,0.0013,baseline-v0.1,KXF1RACE-LASV26-BEA,0.0,0.01,0.01,210.63
+2026-11-21T23:14:53Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,Max Verstappen,max_verstappen,0.1567,baseline-v0.1,KXF1RACE-LASV26-VER,0.5,0.51,0.505,142846.63
+2026-11-21T23:14:53Z,f1,2026-21,2026 Las Vegas Grand Prix,2026-11-22T04:00:00Z,post_quali,George Russell,russell,0.07,baseline-v0.1,KXF1RACE-LASV26-RUS,0.24,0.25,0.245,112219.69
