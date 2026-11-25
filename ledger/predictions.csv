@@ -1326,3 +1326,5 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-25T02:25:17Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2367,clogit-v0.1,KXF1RACE-QATA26-ANT,0.24,0.25,0.245,4172.53
 2026-11-25T02:25:17Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,George Russell,russell,0.09,clogit-v0.1,KXF1RACE-QATA26-RUS,0.06,0.07,0.065,3198.87
 2026-11-25T02:25:17Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Arvid Lindblad,arvid_lindblad,0.002,clogit-v0.1,KXF1RACE-QATA26-LIN,0.0,0.01,0.01,2337.97
+2026-11-25T12:51:08Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Max Verstappen,max_verstappen,0.3196,clogit-v0.1,KXF1RACE-QATA26-VER,0.39,0.41,0.4,10754.49
+2026-11-25T12:51:08Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Andrea Kimi Antonelli,antonelli,0.2367,clogit-v0.1,KXF1RACE-QATA26-ANT,0.21,0.24,0.22499999999999998,4452.04
