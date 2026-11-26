@@ -1342,3 +1342,5 @@ logged_at,sport,event_id,event_name,event_start,stage,selection,selection_id,p_m
 2026-11-25T22:30:59Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Lance Stroll,stroll,0.0004,clogit-v0.1,KXF1RACE-QATA26-STR,0.0,0.01,0.01,33.0
 2026-11-25T22:30:59Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Valtteri Bottas,bottas,0.0002,clogit-v0.1,KXF1RACE-QATA26-BOT,0.0,0.01,0.01,33.0
 2026-11-25T22:30:59Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Sergio Pérez,perez,0.0001,clogit-v0.1,KXF1RACE-QATA26-PER,0.0,0.01,0.01,33.0
+2026-11-26T05:01:24Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,George Russell,russell,0.09,clogit-v0.1,KXF1RACE-QATA26-RUS,0.07,0.08,0.07500000000000001,6921.96
+2026-11-26T05:01:24Z,f1,2026-22,2026 Qatar Grand Prix,2026-11-29T16:00:00Z,pre_quali,Oscar Piastri,piastri,0.0232,clogit-v0.1,KXF1RACE-QATA26-PIA,0.07,0.08,0.07500000000000001,14854.48
